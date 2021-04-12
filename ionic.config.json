@@ -1,0 +1,7 @@
+{
+  "name": "easyFormulaire",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
