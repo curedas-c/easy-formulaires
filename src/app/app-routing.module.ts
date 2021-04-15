@@ -4,12 +4,20 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'folder/Inbox',
+    redirectTo: 'form-list',
     pathMatch: 'full'
   },
   {
-    path: 'folder/:id',
-    loadChildren: () => import('./folder/folder.module').then( m => m.FolderPageModule)
+    path: 'form-list',
+    loadChildren: () => import('./form-list/form-list.module').then( m => m.FormListPageModule)
+  },
+  {
+    path: 'form-create',
+    loadChildren: () => import('./form-create/form-create.module').then( m => m.FormCreatePageModule)
+  },
+  {
+    path: 'form-view',
+    loadChildren: () => import('./form-view/form-view.module').then( m => m.FormViewPageModule)
   }
 ];
 

@@ -35,3 +35,6 @@
 @include nb-install() {
   @include nb-theme-global();
 };
+
+/* Shared Styles */
+@import './theme/shared.scss';
