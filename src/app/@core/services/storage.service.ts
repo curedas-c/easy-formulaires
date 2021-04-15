@@ -18,7 +18,7 @@ export class StorageService {
   async getKeyValue(key: string) {
     const { value } = await Storage.get({ key });
 
-    return JSON.stringify(value) || null;
+    return value ? JSON.parse(value) : null;
   }
 
   async removeKeyValue(key: string) {
