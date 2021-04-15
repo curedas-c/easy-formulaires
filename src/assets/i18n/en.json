@@ -1,5 +1,7 @@
 {
     "SIDEMENU": {
-      "TITLE": "hi@ionicframework.com"
+      "TITLE": "hi@ionicframework.com",
+      "SETTINGS": "Settings",
+      "LANGUAGE": "English"
   }
 }

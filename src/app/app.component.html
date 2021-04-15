@@ -22,6 +22,15 @@
             <ion-label>{{ label }}</ion-label>
           </ion-item>
         </ion-list>
+
+        <ion-list id="labels-list">
+          <ion-list-header translate>SIDEMENU.SETTINGS</ion-list-header>
+          <ion-item lines="none">
+            <ion-icon slot="start" ios="language-outline" md="language"></ion-icon>
+            <ion-label translate>SIDEMENU.LANGUAGE</ion-label>
+            <ion-toggle (ionChange)="switch($event)"></ion-toggle>
+          </ion-item>
+        </ion-list>
       </ion-content>
     </ion-menu>
     <ion-router-outlet id="main-content"></ion-router-outlet>
