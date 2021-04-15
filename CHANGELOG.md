@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.6](///compare/v0.0.5...v0.0.6) (2021-04-15)
+
+
+### Features
+
+* sets up translation service 67db9eb
+
 ### [0.0.5](///compare/v0.0.4...v0.0.5) (2021-04-15)
 
 
