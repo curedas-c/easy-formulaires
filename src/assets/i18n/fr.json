@@ -2,6 +2,14 @@
     "SIDEMENU": {
       "TITLE": "bonjour@ionicframework.com",
       "SETTINGS": "Paramêtres",
-      "LANGUAGE": "Français"
+      "LANGUAGE": "Français",
+      "LINK": {
+        "CREATE": "Créer Un Formulaire",
+        "LIST": "Liste Des Formulaires"
+      },
+      "DEVELOPER": {
+        "TITLE": "Developpeur",
+        "WEBSITE": "Site Web"
+      }
   }
 }

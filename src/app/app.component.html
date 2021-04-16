@@ -5,27 +5,30 @@
         <ion-menu contentId="main-content" type="overlay">
           <ion-content>
             <ion-list id="inbox-list">
-              <ion-list-header>Inbox</ion-list-header>
-              <ion-note>hi@ionicframework.com</ion-note>
-    
-              <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
-                <ion-item routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false" routerLinkActive="selected">
-                  <ion-icon slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>
-                  <ion-label>{{ p.title }}</ion-label>
+
+              <ion-note>
+                <div class="image-center">
+                  <ion-img src="assets/icon/logo.png" width="100%"></ion-img>
+                </div>
+              </ion-note>
+
+              <ion-menu-toggle auto-hide="false">
+                <ion-item routerDirection="root" routerLink="/form-list" lines="none" detail="false"
+                  routerLinkActive="selected">
+                  <ion-icon slot="start" ios="list-outline" md="list-sharp"></ion-icon>
+                  <ion-label translate>SIDEMENU.LINK.LIST</ion-label>
+                </ion-item>
+              </ion-menu-toggle>
+              <ion-menu-toggle auto-hide="false">
+                <ion-item routerDirection="root" routerLink="/form-create" lines="none" detail="false"
+                  routerLinkActive="selected">
+                  <ion-icon slot="start" ios="create-outline" md="create-sharp"></ion-icon>
+                  <ion-label translate>SIDEMENU.LINK.CREATE</ion-label>
                 </ion-item>
               </ion-menu-toggle>
             </ion-list>
-    
-            <ion-list id="labels-list">
-              <ion-list-header>Labels</ion-list-header>
-    
-              <ion-item *ngFor="let label of labels" lines="none">
-                <ion-icon slot="start" ios="bookmark-outline" md="bookmark-sharp"></ion-icon>
-                <ion-label>{{ label }}</ion-label>
-              </ion-item>
-            </ion-list>
-    
-            <ion-list id="labels-list">
+
+            <ion-list id="settings-list">
               <ion-list-header translate>SIDEMENU.SETTINGS</ion-list-header>
               <ion-item lines="none">
                 <ion-icon slot="start" ios="language-outline" md="language"></ion-icon>
@@ -33,7 +36,36 @@
                 <ion-toggle (ionChange)="switch($event)"></ion-toggle>
               </ion-item>
             </ion-list>
+
+            <ion-list id="developer">
+              <ion-list-header translate>SIDEMENU.DEVELOPER.TITLE</ion-list-header>
+              <ion-item href="https://www.linkedin.com/curedas" lines="none">
+                <ion-icon slot="start" ios="logo-linkedin-outline" md="logo-linkedin"></ion-icon>
+                <ion-label>
+                  LinkedIn
+                </ion-label>
+                <ion-icon slot="end" ios="thumbs-up-outline" md="thumbs-up-outline"></ion-icon>
+              </ion-item>
+              <ion-item href="https://www.twitter.com/curedas1" lines="none">
+                <ion-icon slot="start" ios="logo-twitter-outline" md="logo-twitter"></ion-icon>
+                <ion-label>
+                  Twitter
+                </ion-label>
+                <ion-icon slot="end" ios="heart-outline" md="heart-outline"></ion-icon>
+              </ion-item>
+              <ion-item href="https://www.curedas-c.github.io/portfolio" lines="none">
+                <ion-icon slot="start" ios="globe-outline" md="globe"></ion-icon>
+                <ion-label translate>
+                  SIDEMENU.DEVELOPER.WEBSITE
+                </ion-label>
+                <ion-icon slot="end" ios="navigate-circle-outline" md="navigate-outline"></ion-icon>
+              </ion-item>
+            </ion-list>
           </ion-content>
+
+          <div class="version-number">
+            <ion-text color="medium">0.0.3</ion-text>
+          </div>
         </ion-menu>
         <ion-router-outlet id="main-content"></ion-router-outlet>
       </ion-split-pane>

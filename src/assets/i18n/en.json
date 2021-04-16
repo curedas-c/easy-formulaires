@@ -2,6 +2,14 @@
     "SIDEMENU": {
       "TITLE": "hi@ionicframework.com",
       "SETTINGS": "Settings",
-      "LANGUAGE": "English"
+      "LANGUAGE": "English",
+      "LINK": {
+        "CREATE": "Create A Form",
+        "LIST": "Form List"
+      },
+      "DEVELOPER": {
+        "TITLE": "Developer",
+        "WEBSITE": "Website"
+      }
   }
 }
