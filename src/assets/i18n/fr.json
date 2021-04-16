@@ -11,5 +11,8 @@
         "TITLE": "Developpeur",
         "WEBSITE": "Site Web"
       }
+  },
+  "FORMLIST": {
+    "TITLE": "Liste Des Formulaires"
   }
 }

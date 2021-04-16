@@ -11,5 +11,8 @@
         "TITLE": "Developer",
         "WEBSITE": "Website"
       }
+  },
+  "FORMLIST": {
+    "TITLE": "Form List"
   }
 }
