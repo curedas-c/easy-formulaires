@@ -12,7 +12,11 @@
     }
   },
   "FORMLIST": {
-    "TITLE": "Form List"
+    "TITLE": "Form List",
+    "MENU": {
+      "FILL": "Fill Form",
+      "VIEWTABLE": "View Table"
+    }
   },
   "FORMCREATE": {
     "TITLE": "Form Creation",

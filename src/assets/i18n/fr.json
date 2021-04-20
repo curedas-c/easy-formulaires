@@ -12,7 +12,11 @@
     }
   },
   "FORMLIST": {
-    "TITLE": "Liste Des Formulaires"
+    "TITLE": "Liste Des Formulaires",
+    "MENU": {
+      "FILL": "Remplir",
+      "VIEWTABLE": "Voir le Tableau"
+    }
   },
   "FORMCREATE": {
     "TITLE": "Créer Un Formulaire",

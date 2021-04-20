@@ -2,6 +2,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-column-gap: 1rem;
+    grid-auto-rows: min-content;
     padding: 0 .5rem;
     margin-top: 1rem;
 
@@ -19,6 +20,37 @@ ion-content ion-header.ios {
     display: none;
 }
 
+nb-card {
+    height: fit-content;
+}
+
 nb-card-body {
-    padding: .6rem .8rem;
+    padding: .6rem .3rem .6rem .6rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    ion-text {
+        max-width: 40vw;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        @media (max-width: 767px) and (orientation: landscape) {
+            max-width: 25vw;
+        }
+        @media (min-width: 768px) {
+            max-width: 24vw;
+        }
+        @media (min-width: 1024px) {
+            max-width: 18vw;
+        }
+    }
+}
+
+.mat-menu-item {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    span {
+        margin-left: .2rem;
+    }
 }

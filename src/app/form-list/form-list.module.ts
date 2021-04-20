@@ -10,6 +10,8 @@ import { FormListPage } from './form-list.page';
 import { TranslateModule } from '@ngx-translate/core';
 import { NbCardModule } from '@nebular/theme';
 
+import {MatMenuModule} from '@angular/material/menu';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -17,7 +19,8 @@ import { NbCardModule } from '@nebular/theme';
     IonicModule,
     FormListPageRoutingModule,
     TranslateModule.forChild(),
-    NbCardModule
+    NbCardModule,
+    MatMenuModule
   ],
   declarations: [FormListPage]
 })

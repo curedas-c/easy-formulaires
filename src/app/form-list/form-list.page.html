@@ -24,31 +24,18 @@
         <ion-img src="assets/icon/form.svg"></ion-img>
       </nb-card-header>
       <nb-card-body>
-         Parents Advice Form
-      </nb-card-body>
-    </nb-card>
-    <nb-card accent="info">
-      <nb-card-header>
-        <ion-img src="assets/icon/form.svg"></ion-img>
-      </nb-card-header>
-      <nb-card-body>
-         Actors Role Form
-      </nb-card-body>
-    </nb-card>
-    <nb-card accent="info">
-      <nb-card-header>
-        <ion-img src="assets/icon/form.svg"></ion-img>
-      </nb-card-header>
-      <nb-card-body>
-         Most Viewed Videos Form
-      </nb-card-body>
-    </nb-card>
-    <nb-card accent="info">
-      <nb-card-header>
-        <ion-img src="assets/icon/form.svg"></ion-img>
-      </nb-card-header>
-      <nb-card-body>
-         MyForm
+        <ion-text>Parents Advice Form</ion-text>
+        <ion-icon [matMenuTriggerFor]="menu" name="ellipsis-vertical-outline"></ion-icon>
+        <mat-menu #menu="matMenu" yPosition="below" xPosition="after">
+          <button mat-menu-item (click)="goFill()">
+            <ion-icon name="create-outline"></ion-icon>
+            <span translate>FORMLIST.MENU.FILL</span>
+          </button>
+          <button mat-menu-item (click)="goTable()">
+            <ion-icon name="reader-outline"></ion-icon>
+            <span translate>FORMLIST.MENU.VIEWTABLE</span>
+          </button>
+        </mat-menu>
       </nb-card-body>
     </nb-card>
   </section>
