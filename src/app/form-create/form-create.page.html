@@ -14,4 +14,81 @@
     </ion-toolbar>
   </ion-header>
 
+  <section id="content">
+    <div id="slides">
+      <ion-slides pager="false">
+        <ion-slide>
+          <form id="formDetail">
+            <input type="text" name="formname" nbInput fullWidth status="basic"
+              placeholder="{{'FORMCREATE.FORMINPUT.FORMNAME' | translate}}" [(ngModel)]="formName">
+            <input #logoInput type="file" accept='image/*' name="formlogo" (change)="onFileChange($event)" />
+            <button nbButton fullWidth status="basic" (click)="logoInput.click()" class="file-button">
+              <ion-icon name="images-outline"></ion-icon>
+              {{ formLogo ? formLogoName : 'FORMCREATE.FORMINPUT.FILE' | translate}}
+            </button>
+            <button nbButton status="primary" translate>FORMCREATE.BUTTONS.NEXTSLIDE</button>
+          </form>
+        </ion-slide>
+
+        <ion-slide>
+          <form id="formInputs">
+            <div class="two-column">
+              <input type="text" nbInput status="basic" placeholder="{{'FORMCREATE.FORMINPUT.LABELNAME' | translate}}">
+              <nb-select placeholder="{{'FORMCREATE.FORMINPUT.TYPES' | translate}}" fullWidth>
+                <nb-option value="text" translate>FORMCREATE.FORMINPUT.OPTIONTEXT</nb-option>
+                <nb-option value="number" translate>FORMCREATE.FORMINPUT.OPTIONNUMBER</nb-option>
+                <nb-option value="tel" translate>FORMCREATE.FORMINPUT.OPTIONPHONE</nb-option>
+                <nb-option value="email" translate>FORMCREATE.FORMINPUT.OPTIONEMAIL</nb-option>
+                <nb-option value="checkbox" translate>FORMCREATE.FORMINPUT.OPTIONCHECKBOX</nb-option>
+                <nb-option value="select" translate>FORMCREATE.FORMINPUT.OPTIONSELECT</nb-option>
+                <nb-option value="multiselect" translate>FORMCREATE.FORMINPUT.OPTIONMULTISELECT</nb-option>
+              </nb-select>
+            </div>
+            <nb-checkbox status="basic">{{'FORMCREATE.FORMINPUT.FIELDREQUIRED' | translate}}</nb-checkbox>
+            <input type="text" nbInput status="basic" fullWidth
+              placeholder="{{'FORMCREATE.FORMINPUT.VALUES' | translate}}">
+            <button nbButton status="primary" translate>FORMCREATE.BUTTONS.ADDINPUT
+            </button>
+          </form>
+        </ion-slide>
+      </ion-slides>
+    </div>
+
+
+    <div id="overview">
+      <nb-tabset fullWidth>
+        <nb-tab tabTitle="{{'FORMCREATE.OVERVIEW.FORMVIEW' | translate}}">
+          <app-form-fill [formName]="formName" [formLogo]="formLogo"></app-form-fill>
+        </nb-tab>
+
+        <nb-tab tabTitle="{{'FORMCREATE.OVERVIEW.INPUTVIEW' | translate}}">
+          <ion-list id="input-list">
+            <ion-item lines="full" class="input-list">
+              <ion-label>Name</ion-label>
+              <!-- <ion-icon name="create-outline" slot="end"></ion-icon> -->
+              <ion-icon name="close-outline" slot="end"></ion-icon>
+            </ion-item>
+
+            <ion-item lines="full">
+              <ion-label>Contact</ion-label>
+              <!-- <ion-icon name="create-outline" slot="end"></ion-icon> -->
+              <ion-icon name="close-outline" slot="end"></ion-icon>
+            </ion-item>
+
+            <ion-item lines="full">
+              <ion-label>Credit Card</ion-label>
+              <!-- <ion-icon name="create-outline" slot="end"></ion-icon> -->
+              <ion-icon name="close-outline" slot="end"></ion-icon>
+            </ion-item>
+
+            <ion-item lines="full">
+              <ion-label>Hair Color</ion-label>
+              <!-- <ion-icon name="create-outline" slot="end"></ion-icon> -->
+              <ion-icon name="close-outline" slot="end"></ion-icon>
+            </ion-item>
+          </ion-list>
+        </nb-tab>
+      </nb-tabset>
+    </div>
+  </section>
 </ion-content>

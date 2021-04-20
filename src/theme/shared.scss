@@ -3,9 +3,16 @@ ion-menu-button {
 }
 
 ion-header {
-    box-shadow: 0 0.5rem 1rem 0 rgba(44, 51, 73, 0.1)!important;
+    box-shadow: 0 0.5rem 1rem 0 rgba(44, 51, 73, 0.1) !important;
+
     &::after {
-        background-image: none!important;
-        height: 0!important;
+        background-image: none !important;
+        height: 0 !important;
     }
+}
+
+*,
+*:focus,
+*:hover {
+    outline: none !important;
 }

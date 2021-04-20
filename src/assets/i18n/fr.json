@@ -1,18 +1,44 @@
 {
-    "SIDEMENU": {
-      "TITLE": "bonjour@ionicframework.com",
-      "SETTINGS": "Paramêtres",
-      "LANGUAGE": "Français",
-      "LINK": {
-        "CREATE": "Créer Un Formulaire",
-        "LIST": "Liste Des Formulaires"
-      },
-      "DEVELOPER": {
-        "TITLE": "Developpeur",
-        "WEBSITE": "Site Web"
-      }
+  "SIDEMENU": {
+    "SETTINGS": "Paramêtres",
+    "LANGUAGE": "Français",
+    "LINK": {
+      "CREATE": "Créer Un Formulaire",
+      "LIST": "Liste Des Formulaires"
+    },
+    "DEVELOPER": {
+      "TITLE": "Developpeur",
+      "WEBSITE": "Site Web"
+    }
   },
   "FORMLIST": {
     "TITLE": "Liste Des Formulaires"
+  },
+  "FORMCREATE": {
+    "TITLE": "Créer Un Formulaire",
+    "BUTTONS": {
+      "NEXTSLIDE": "Suivant",
+      "PREVSLIDE": "Précédent",
+      "ADDINPUT": "Ajouter Le Champs"
+    },
+    "FORMINPUT": {
+      "FIELDREQUIRED": "Ce champs est-il requis ?",
+      "VALUES": "Valeurs Possibles (separées par une virgule)",
+      "FORMNAME": "Nom du formulaire",
+      "FILE": "Logo du formulaire (optionnel)",
+      "LABELNAME": "Nom du Champ",
+      "TYPES": "Sélectionner un type",
+      "OPTIONTEXT": "Texte",
+      "OPTIONSELECT": "Sélection",
+      "OPTIONMULTISELECT": "Sélection Multiple",
+      "OPTIONCHECKBOX": "Vrai ou Faux",
+      "OPTIONEMAIL": "Email",
+      "OPTIONNUMBER": "Nombre",
+      "OPTIONPHONE": "Contact"
+    },
+    "OVERVIEW": {
+      "FORMVIEW": "Aperçu Formulaire",
+      "INPUTVIEW": "Aperçu Champs"
+    }
   }
 }

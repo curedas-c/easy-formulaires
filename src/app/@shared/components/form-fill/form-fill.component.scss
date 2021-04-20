@@ -1,0 +1,31 @@
+:host {
+    ion-img {
+        height: 15vh;
+        margin-bottom: .6rem;
+
+        button[type="submit"] {
+            margin-top: 6vh;
+        }
+    }
+
+    nb-card-body,
+    nb-card-footer {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: stretch;
+
+        nb-checkbox {
+            margin-top: 1.5rem;
+        }
+    }
+
+    nb-card-footer button {
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    nb-card-header {
+        text-transform: uppercase;
+    }
+}
