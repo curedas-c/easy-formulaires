@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.14](///compare/v0.0.13...v0.0.14) (2021-04-22)
+
+
+### Features
+
+* updates card items from form-list page dba29db
+
 ### [0.0.13](///compare/v0.0.12...v0.0.13) (2021-04-22)
 
 
