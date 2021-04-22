@@ -17,25 +17,56 @@
     </ion-toolbar>
   </ion-header>
 
-  
+
   <section id="form-list">
     <nb-card accent="info">
-      <nb-card-header>
-        <ion-img src="assets/icon/form.svg"></ion-img>
+      <nb-card-header (click)="goFill()">
+        <ion-item lines="none">
+          <ion-avatar slot="start">
+            <img src="assets/icon/form.svg">
+          </ion-avatar>
+          <ion-label>Parents Advice Form</ion-label>
+        </ion-item>
       </nb-card-header>
       <nb-card-body>
-        <ion-text>Parents Advice Form</ion-text>
-        <ion-icon [matMenuTriggerFor]="menu" name="ellipsis-vertical-outline"></ion-icon>
-        <mat-menu #menu="matMenu" yPosition="below" xPosition="after">
-          <button mat-menu-item (click)="goFill()">
-            <ion-icon name="create-outline"></ion-icon>
-            <span translate>FORMLIST.MENU.FILL</span>
-          </button>
-          <button mat-menu-item (click)="goTable()">
-            <ion-icon name="reader-outline"></ion-icon>
-            <span translate>FORMLIST.MENU.VIEWTABLE</span>
-          </button>
-        </mat-menu>
+        <ion-button (click)="goTable()" color="light" expand="block" translate>FORMLIST.MENU.VIEWTABLE</ion-button>
+        <ion-button (click)="goFill()" color="secondary" fill="clear" expand="block" translate>
+          <ion-icon name="create-outline"></ion-icon> FORMLIST.MENU.FILL
+        </ion-button>
+      </nb-card-body>
+    </nb-card>
+
+    <nb-card accent="info">
+      <nb-card-header (click)="goFill()">
+        <ion-item lines="none">
+          <ion-avatar slot="start">
+            <img src="assets/icon/form.svg">
+          </ion-avatar>
+          <ion-label>Parents Advice Form</ion-label>
+        </ion-item>
+      </nb-card-header>
+      <nb-card-body>
+        <ion-button (click)="goTable()" color="light" expand="block" translate>FORMLIST.MENU.VIEWTABLE</ion-button>
+        <ion-button (click)="goFill()" color="secondary" fill="clear" expand="block" translate>
+          <ion-icon name="create-outline"></ion-icon> FORMLIST.MENU.FILL
+        </ion-button>
+      </nb-card-body>
+    </nb-card>
+
+    <nb-card accent="info">
+      <nb-card-header (click)="goFill()">
+        <ion-item lines="none">
+          <ion-avatar slot="start">
+            <img src="assets/icon/form.svg">
+          </ion-avatar>
+          <ion-label>Parents Advice Form</ion-label>
+        </ion-item>
+      </nb-card-header>
+      <nb-card-body>
+        <ion-button (click)="goTable()" color="light" expand="block" translate>FORMLIST.MENU.VIEWTABLE</ion-button>
+        <ion-button (click)="goFill()" color="secondary" fill="clear" expand="block" translate>
+          <ion-icon name="create-outline"></ion-icon> FORMLIST.MENU.FILL
+        </ion-button>
       </nb-card-body>
     </nb-card>
   </section>
