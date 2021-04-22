@@ -16,3 +16,28 @@ ion-header {
 *:hover {
     outline: none !important;
 }
+
+.mat-menu-item {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    span {
+        margin-left: .2rem;
+    }
+}
+
+.mat-elevation-z4 {
+    box-shadow: 0 0.5rem 1rem 0 rgb(44 51 73 / 10%);
+}
+
+nb-checkbox {
+    label.label {
+        flex-direction: row-reverse;
+    }
+
+    .text:not(:empty) {
+        padding-left: 0rem;
+        padding-right: 0.6875rem;
+    }
+}

@@ -44,5 +44,11 @@
       "FORMVIEW": "Aperçu Formulaire",
       "INPUTVIEW": "Aperçu Champs"
     }
+  },
+  "FORMVIEW": {
+    "TITLE": "Formulaire"
+  },
+  "FORMFILL": {
+    "SUBMIT": "Enregistrer"
   }
 }

@@ -1,10 +1,16 @@
 :host {
+    text-align: center;
+
     ion-img {
-        height: 15vh;
+        height: 12vh;
         margin-bottom: .6rem;
 
         button[type="submit"] {
             margin-top: 6vh;
+        }
+
+        @media (min-width: 768px) {
+            height: 8vh;
         }
     }
 
@@ -17,12 +23,17 @@
 
         nb-checkbox {
             margin-top: 1.5rem;
+            margin-bottom: .6rem;
         }
     }
 
-    nb-card-footer button {
-        width: 80%;
-        margin: 0 auto;
+    nb-card-footer {
+        border-top: none;
+
+        button {
+            width: 80%;
+            margin: 0 auto;
+        }
     }
 
     nb-card-header {

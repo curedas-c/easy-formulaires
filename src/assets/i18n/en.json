@@ -44,5 +44,11 @@
       "FORMVIEW": "Form Overview",
       "INPUTVIEW": "Input Overview"
     }
+  },
+  "FORMVIEW": {
+    "TITLE": "Form"
+  },
+  "FORMFILL": {
+    "SUBMIT": "Submit"
   }
 }

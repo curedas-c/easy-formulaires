@@ -1,11 +1,13 @@
 <article class="form-overview">
-  <div *ngIf="formLogo">
-    <ion-img [src]="formLogo"></ion-img>
-  </div>
+  <ion-text *ngIf="formName">
+    <h5>{{ formName }}</h5>
+  </ion-text>
 
   <form>
     <nb-card>
-      <nb-card-header *ngIf="formName">{{ formName }}</nb-card-header>
+      <nb-card-header *ngIf="formLogo">
+        <ion-img [src]="formLogo"></ion-img>
+      </nb-card-header>
       <nb-card-body>
         <ion-item lines="bottom">
           <ion-label position="floating">Name</ion-label>
@@ -25,7 +27,7 @@
         </ion-item>
       </nb-card-body>
       <nb-card-footer>
-        <button nbButton status="primary">Submit</button></nb-card-footer>
+        <button nbButton status="primary" translate>FORMFILL.SUBMIT</button></nb-card-footer>
     </nb-card>
   </form>
 </article>

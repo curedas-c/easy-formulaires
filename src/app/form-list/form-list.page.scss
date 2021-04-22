@@ -10,6 +10,7 @@
         grid-template-columns: 1fr 1fr 1fr;
         padding: 0 .8rem;
     }
+
     @media (min-width: 768px) {
         grid-template-columns: 1fr 1fr 1fr;
         padding: 0 1rem;
@@ -29,28 +30,23 @@ nb-card-body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+
     ion-text {
         max-width: 40vw;
         text-overflow: ellipsis;
         white-space: nowrap;
         overflow: hidden;
+
         @media (max-width: 767px) and (orientation: landscape) {
             max-width: 25vw;
         }
+
         @media (min-width: 768px) {
             max-width: 24vw;
         }
+
         @media (min-width: 1024px) {
             max-width: 18vw;
         }
-    }
-}
-
-.mat-menu-item {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    span {
-        margin-left: .2rem;
     }
 }

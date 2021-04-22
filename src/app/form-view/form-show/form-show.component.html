@@ -1,3 +1,31 @@
-<p>
-  form-show works!
-</p>
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title translate>FORMVIEW.TITLE</ion-title>
+    <ion-buttons slot="end" id="option-icon">
+      <ion-icon [matMenuTriggerFor]="menu" name="ellipsis-vertical-outline"></ion-icon>
+      <mat-menu #menu="matMenu" yPosition="below" xPosition="after">
+        <div mat-menu-item (click)="goTable()">
+          <ion-item lines="none">
+            <ion-icon slot="start" name="reader-outline"></ion-icon>
+            <span translate>FORMLIST.MENU.VIEWTABLE</span>
+          </ion-item>
+        </div>
+      </mat-menu>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large" translate>FORMVIEW.TITLE</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <section id="content" class="colored-column-basic">
+    <app-form-fill [formName]="formName" [formLogo]="formLogo"></app-form-fill>
+  </section>
+</ion-content>
