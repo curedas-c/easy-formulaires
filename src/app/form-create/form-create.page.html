@@ -4,6 +4,17 @@
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
     <ion-title translate>FORMCREATE.TITLE</ion-title>
+    <ion-buttons slot="end" id="option-icon">
+      <ion-icon [matMenuTriggerFor]="menu" name="ellipsis-vertical-outline"></ion-icon>
+      <mat-menu #menu="matMenu" yPosition="below" xPosition="after">
+        <div mat-menu-item>
+          <ion-item lines="none">
+            <ion-icon slot="start" name="download-outline"></ion-icon>
+            <span translate>FORMCREATE.SAVE</span>
+          </ion-item>
+        </div>
+      </mat-menu>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 

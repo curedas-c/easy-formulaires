@@ -20,6 +20,7 @@
   },
   "FORMCREATE": {
     "TITLE": "Créer Un Formulaire",
+    "SAVE": "Sauvegarder",
     "BUTTONS": {
       "NEXTSLIDE": "Suivant",
       "PREVSLIDE": "Précédent",

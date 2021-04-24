@@ -20,6 +20,7 @@
   },
   "FORMCREATE": {
     "TITLE": "Form Creation",
+    "SAVE": "Save",
     "BUTTONS": {
       "NEXTSLIDE": "Next",
       "PREVSLIDE": "Back",

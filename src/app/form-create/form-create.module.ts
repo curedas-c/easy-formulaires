@@ -17,6 +17,7 @@ import {
 } from '@nebular/theme';
 import { TranslateModule } from '@ngx-translate/core';
 import { FormFillModule } from '../@shared/components/form-fill/form-fill.module';
+import { MatMenuModule } from '@angular/material/menu';
 
 @NgModule({
   imports: [
@@ -32,6 +33,7 @@ import { FormFillModule } from '../@shared/components/form-fill/form-fill.module
     NbTabsetModule,
     NbCardModule,
     FormFillModule,
+    MatMenuModule
   ],
   declarations: [FormCreatePage],
 })
