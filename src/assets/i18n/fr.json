@@ -50,5 +50,8 @@
   },
   "FORMFILL": {
     "SUBMIT": "Enregistrer"
+  },
+  "FORMTABLE": {
+    "TITLE": "Données Formulaire"
   }
 }

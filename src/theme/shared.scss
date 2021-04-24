@@ -27,7 +27,8 @@ ion-header {
     }
 }
 
-.mat-elevation-z4 {
+.mat-elevation-z4,
+.mat-select-panel:not([class*=mat-elevation-z]) {
     box-shadow: 0 0.5rem 1rem 0 rgb(44 51 73 / 10%);
 }
 

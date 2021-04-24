@@ -1,0 +1,100 @@
+#content {
+    padding: 1rem .6rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+    ion-text {
+        text-align: center;
+    }
+}
+
+#controls {
+    ion-toolbar {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+
+    mat-paginator {
+        margin-bottom: 10vh;
+    }
+
+    ion-label {
+        display: block;
+        max-width: 40vw;
+        padding-left: .6rem;
+    }
+
+}
+
+#table-wrapper {
+    overflow: auto;
+    min-height: 40vh;
+}
+
+table {
+    width: 100%;
+
+    * {
+        font-size: 1rem;
+    }
+}
+
+:host ::ng-deep {
+    .mat-paginator {
+        margin-top: 1rem;
+
+        * {
+            font-size: 1.2rem;
+        }
+    }
+
+    .mat-paginator-container {
+        justify-content: flex-start;
+    }
+
+    .mat-paginator-icon {
+        width: 3rem;
+    }
+
+    .mat-paginator-range-label {
+        margin: 0 .5rem 0 0;
+        font-size: 1.5rem;
+    }
+
+    .mat-paginator-range-actions {
+        width: 100%;
+        justify-content: space-evenly;
+    }
+
+    .mat-paginator-page-size {
+        width: 100%;
+        justify-content: center;
+    }
+
+    tr:nth-last-of-type(1) {
+
+        td.mat-cell,
+        td.mat-footer-cell {
+            border-bottom: none !important;
+        }
+    }
+
+    button[class="select-button"] {
+        min-width: 30%;
+    }
+
+    nb-select {
+        .select-button {
+            min-width: 0;
+        }
+    }
+
+}
+
+.mat-body {
+    padding: .6rem;
+    box-shadow: 0 0.5rem 1rem 0 rgb(44 51 73 / 10%);
+}

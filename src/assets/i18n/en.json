@@ -50,5 +50,8 @@
   },
   "FORMFILL": {
     "SUBMIT": "Submit"
+  },
+  "FORMTABLE": {
+    "TITLE": "Form Data"
   }
 }

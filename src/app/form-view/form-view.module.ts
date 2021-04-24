@@ -12,6 +12,10 @@ import { FormTableComponent } from './form-table/form-table.component';
 import { FormFillModule } from '../@shared/components/form-fill/form-fill.module';
 import { TranslateModule } from '@ngx-translate/core';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatTableModule } from '@angular/material/table';
+import { MatSortModule } from '@angular/material/sort';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { NbCardModule, NbSelectModule } from '@nebular/theme';
 
 @NgModule({
   imports: [
@@ -22,6 +26,11 @@ import { MatMenuModule } from '@angular/material/menu';
     TranslateModule.forChild(),
     FormFillModule,
     MatMenuModule,
+    MatTableModule,
+    MatSortModule,
+    MatPaginatorModule,
+    NbCardModule,
+    NbSelectModule,
   ],
   declarations: [FormViewPage, FormShowComponent, FormTableComponent],
 })
