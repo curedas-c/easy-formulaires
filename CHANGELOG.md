@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.17](///compare/v0.0.16...v0.0.17) (2021-04-25)
+
+
+### Features
+
+* updates app logo image d484a61
+
 ### [0.0.16](///compare/v0.0.15...v0.0.16) (2021-04-24)
 
 
