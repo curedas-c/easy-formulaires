@@ -2,6 +2,76 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.17](///compare/v0.0.16...v0.0.17) (2021-04-25)
+
+
+### Features
+
+* updates app logo image d484a61
+
+### [0.0.16](///compare/v0.0.15...v0.0.16) (2021-04-24)
+
+
+### Features
+
+* adds save option to form-create page fd1ce8a
+
+### [0.0.15](///compare/v0.0.14...v0.0.15) (2021-04-24)
+
+
+### Features
+
+* integrates form-table component 3229bb7
+
+### [0.0.14](///compare/v0.0.13...v0.0.14) (2021-04-22)
+
+
+### Features
+
+* updates card items from form-list page dba29db
+
+### [0.0.13](///compare/v0.0.12...v0.0.13) (2021-04-22)
+
+
+### Features
+
+* integrates form-show component f0e095c
+
+### [0.0.12](///compare/v0.0.11...v0.0.12) (2021-04-20)
+
+
+### Features
+
+* adds menu action to form-list cards a05d816
+
+### [0.0.11](///compare/v0.0.10...v0.0.11) (2021-04-20)
+
+
+### Features
+
+* integrates form-create page e91bbff
+
+### [0.0.10](///compare/v0.0.9...v0.0.10) (2021-04-16)
+
+
+### Features
+
+* integrates form-list page 8232875
+
+### [0.0.9](///compare/v0.0.8...v0.0.9) (2021-04-16)
+
+
+### Features
+
+* integrates main sidebar f3a6232
+
+### [0.0.8](///compare/v0.0.7...v0.0.8) (2021-04-15)
+
+
+### Features
+
+* updates capacitor/android version 4ce497a
+
 ### [0.0.7](///compare/v0.0.6...v0.0.7) (2021-04-15)
 
 

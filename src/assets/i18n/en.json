@@ -1,7 +1,58 @@
 {
-    "SIDEMENU": {
-      "TITLE": "hi@ionicframework.com",
-      "SETTINGS": "Settings",
-      "LANGUAGE": "English"
+  "SIDEMENU": {
+    "SETTINGS": "Settings",
+    "LANGUAGE": "English",
+    "LINK": {
+      "CREATE": "Create A Form",
+      "LIST": "Form List"
+    },
+    "DEVELOPER": {
+      "TITLE": "Developer",
+      "WEBSITE": "Website"
+    }
+  },
+  "FORMLIST": {
+    "TITLE": "Form List",
+    "MENU": {
+      "FILL": "Fill Form",
+      "VIEWTABLE": "View Table"
+    }
+  },
+  "FORMCREATE": {
+    "TITLE": "Form Creation",
+    "SAVE": "Save",
+    "BUTTONS": {
+      "NEXTSLIDE": "Next",
+      "PREVSLIDE": "Back",
+      "ADDINPUT": "Add Field"
+    },
+    "FORMINPUT": {
+      "FIELDREQUIRED": "is the field required ?",
+      "VALUES": "Possible Values (separated by comma)",
+      "FORMNAME": "Form name",
+      "FILE": "Form Logo (optional)",
+      "LABELNAME": "Input Name",
+      "TYPES": "Input Type",
+      "OPTIONTEXT": "Text",
+      "OPTIONSELECT": "Select",
+      "OPTIONMULTISELECT": "Multi-Select",
+      "OPTIONCHECKBOX": "True or False",
+      "OPTIONEMAIL": "Email",
+      "OPTIONNUMBER": "Number",
+      "OPTIONPHONE": "Phone"
+    },
+    "OVERVIEW": {
+      "FORMVIEW": "Form Overview",
+      "INPUTVIEW": "Input Overview"
+    }
+  },
+  "FORMVIEW": {
+    "TITLE": "Form"
+  },
+  "FORMFILL": {
+    "SUBMIT": "Submit"
+  },
+  "FORMTABLE": {
+    "TITLE": "Form Data"
   }
 }

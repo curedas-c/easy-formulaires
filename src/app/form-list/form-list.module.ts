@@ -7,13 +7,20 @@ import { IonicModule } from '@ionic/angular';
 import { FormListPageRoutingModule } from './form-list-routing.module';
 
 import { FormListPage } from './form-list.page';
+import { TranslateModule } from '@ngx-translate/core';
+import { NbCardModule } from '@nebular/theme';
+
+import {MatMenuModule} from '@angular/material/menu';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    FormListPageRoutingModule
+    FormListPageRoutingModule,
+    TranslateModule.forChild(),
+    NbCardModule,
+    MatMenuModule
   ],
   declarations: [FormListPage]
 })

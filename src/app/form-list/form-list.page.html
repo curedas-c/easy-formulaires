@@ -1,4 +1,4 @@
-<ion-header [translucent]="true">
+<ion-header [translucent]="true" collapse="condense">
   <ion-toolbar>
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
@@ -8,10 +8,72 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
+  <ion-header>
     <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
       <ion-title size="large" translate>FORMLIST.TITLE</ion-title>
     </ion-toolbar>
   </ion-header>
 
+
+  <section id="form-list">
+    <nb-card accent="info">
+      <nb-card-header (click)="goFill()">
+        <ion-item lines="none">
+          <ion-avatar slot="start">
+            <img src="assets/icon/form.svg">
+          </ion-avatar>
+          <ion-label>Parents Advice Form</ion-label>
+        </ion-item>
+      </nb-card-header>
+      <nb-card-body>
+        <ion-button (click)="goTable()" color="light" expand="block" translate>FORMLIST.MENU.VIEWTABLE</ion-button>
+        <ion-button (click)="goFill()" color="secondary" fill="clear" expand="block" translate>
+          <ion-icon name="create-outline"></ion-icon> FORMLIST.MENU.FILL
+        </ion-button>
+      </nb-card-body>
+    </nb-card>
+
+    <nb-card accent="info">
+      <nb-card-header (click)="goFill()">
+        <ion-item lines="none">
+          <ion-avatar slot="start">
+            <img src="assets/icon/form.svg">
+          </ion-avatar>
+          <ion-label>Parents Advice Form</ion-label>
+        </ion-item>
+      </nb-card-header>
+      <nb-card-body>
+        <ion-button (click)="goTable()" color="light" expand="block" translate>FORMLIST.MENU.VIEWTABLE</ion-button>
+        <ion-button (click)="goFill()" color="secondary" fill="clear" expand="block" translate>
+          <ion-icon name="create-outline"></ion-icon> FORMLIST.MENU.FILL
+        </ion-button>
+      </nb-card-body>
+    </nb-card>
+
+    <nb-card accent="info">
+      <nb-card-header (click)="goFill()">
+        <ion-item lines="none">
+          <ion-avatar slot="start">
+            <img src="assets/icon/form.svg">
+          </ion-avatar>
+          <ion-label>Parents Advice Form</ion-label>
+        </ion-item>
+      </nb-card-header>
+      <nb-card-body>
+        <ion-button (click)="goTable()" color="light" expand="block" translate>FORMLIST.MENU.VIEWTABLE</ion-button>
+        <ion-button (click)="goFill()" color="secondary" fill="clear" expand="block" translate>
+          <ion-icon name="create-outline"></ion-icon> FORMLIST.MENU.FILL
+        </ion-button>
+      </nb-card-body>
+    </nb-card>
+  </section>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button routerLink="/form-create" routerDirection="forward">
+      <ion-icon name="create-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>

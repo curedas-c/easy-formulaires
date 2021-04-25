@@ -1,0 +1,33 @@
+<article class="form-overview">
+  <ion-text *ngIf="formName">
+    <h5>{{ formName }}</h5>
+  </ion-text>
+
+  <form>
+    <nb-card>
+      <nb-card-header *ngIf="formLogo">
+        <ion-img [src]="formLogo"></ion-img>
+      </nb-card-header>
+      <nb-card-body>
+        <ion-item lines="bottom">
+          <ion-label position="floating">Name</ion-label>
+          <ion-input type="text"></ion-input>
+        </ion-item>
+        <ion-item lines="bottom">
+          <ion-label position="floating">Contact</ion-label>
+          <ion-input type="tel"></ion-input>
+        </ion-item>
+        <nb-checkbox>I have a credit card ?</nb-checkbox>
+        <ion-item lines="bottom">
+          <ion-label position="floating">Your Hair Color</ion-label>
+          <ion-select>
+            <ion-select-option value="brown">Brown</ion-select-option>
+            <ion-select-option value="blonde">Blonde</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </nb-card-body>
+      <nb-card-footer>
+        <button nbButton status="primary" translate>FORMFILL.SUBMIT</button></nb-card-footer>
+    </nb-card>
+  </form>
+</article>

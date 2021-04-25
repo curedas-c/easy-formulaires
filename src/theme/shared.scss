@@ -1,3 +1,48 @@
 ion-menu-button {
     color: var(--ion-color-primary);
 }
+
+ion-header {
+    box-shadow: 0 0.5rem 1rem 0 rgba(44, 51, 73, 0.1) !important;
+
+    &::after {
+        background-image: none !important;
+        height: 0 !important;
+    }
+}
+
+*,
+*:focus,
+*:hover {
+    outline: none !important;
+}
+
+.mat-menu-item {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    span {
+        margin-left: .2rem;
+    }
+}
+
+.mat-elevation-z4,
+.mat-select-panel:not([class*=mat-elevation-z]) {
+    box-shadow: 0 0.5rem 1rem 0 rgb(44 51 73 / 10%);
+}
+
+nb-checkbox {
+    label.label {
+        flex-direction: row-reverse;
+    }
+
+    .text:not(:empty) {
+        padding-left: 0rem;
+        padding-right: 0.6875rem;
+    }
+}
+
+#option-icon {
+    font-size: 150%;
+}

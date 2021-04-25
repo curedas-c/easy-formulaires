@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-form-list',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FormListPage implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
 
+  goFill() {
+    this.router.navigateByUrl('/form-view/fill');
+  }
+
+  goTable() {
+    this.router.navigateByUrl('/form-view/table');
+  }
 }
