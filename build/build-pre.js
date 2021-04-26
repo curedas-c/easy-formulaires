@@ -15,9 +15,9 @@ fs.readFile(versionFilePath, function(err, data) {
 
   // updates versionCode
   data = data.toString();
-  var versionCodePattern = /versionCode [0-9]/g;
+  var versionCodePattern = /versionCode [0-9]+/g;
   const versionCodeString = data.match(versionCodePattern).toString();
-  const actualVersionCode = parseInt(versionCodeString.replace(/[^0-9]/g,''), 10);
+  const actualVersionCode = parseInt(versionCodeString.replace(/[^0-9]+/g,''), 10);
   const newVersionCode = actualVersionCode + 1;
   data = data.replace(versionCodePattern, `versionCode ${newVersionCode}`);
 
@@ -26,7 +26,7 @@ fs.readFile(versionFilePath, function(err, data) {
   data = data.replace(versionNamePattern, `versionName "${appVersion}"`);
 
   // ensure version module pulls value from package.json
-  fs.writeFile(versionFilePath, data, { flat: "w" }, function(err) {
+   fs.writeFile(versionFilePath, data, { flat: "w" }, function(err) {
     if (err) {
       return console.log(colors.red(err));
     }
@@ -38,4 +38,3 @@ fs.readFile(versionFilePath, function(err, data) {
     );
   });
 });
-
