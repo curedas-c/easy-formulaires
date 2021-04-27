@@ -14,14 +14,23 @@ export class LanguageService {
   constructor(private translate: TranslateService, private storage: StorageService) {
    }
 
-   initLanguage() {
-     this.storage.getKeyValue('language').then(languageCode => {
+   async initLanguage(): Promise<string> {
+     await this.storage.getKeyValue('language').then(languageCode => {
       this.translate.addLangs(['en', 'fr']);
       this.translate.setDefaultLang(languageCode || 'en');
+      this.translate.use(languageCode || 'en');
+     },
+     error => {
+      this.translate.setDefaultLang('en');
+       this.translate.use('en');
      });
+
+     return this.translate.currentLang;
    }
 
    setLanguageTo(languageCode: string) {
-    this.translate.use(languageCode);
+    this.storage.setKeyValue('language', languageCode).then(() => {
+      this.translate.use(languageCode);
+    });
    }
 }
