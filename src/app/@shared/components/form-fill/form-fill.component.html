@@ -4,30 +4,35 @@
   </ion-text>
 
   <form>
-    <nb-card>
+    <nb-card [formGroup]="form">
       <nb-card-header *ngIf="formLogo">
         <ion-img [src]="formLogo"></ion-img>
       </nb-card-header>
-      <nb-card-body>
-        <ion-item lines="bottom">
-          <ion-label position="floating">Name</ion-label>
-          <ion-input type="text"></ion-input>
-        </ion-item>
-        <ion-item lines="bottom">
-          <ion-label position="floating">Contact</ion-label>
-          <ion-input type="tel"></ion-input>
-        </ion-item>
-        <nb-checkbox>I have a credit card ?</nb-checkbox>
-        <ion-item lines="bottom">
-          <ion-label position="floating">Your Hair Color</ion-label>
-          <ion-select>
-            <ion-select-option value="brown">Brown</ion-select-option>
-            <ion-select-option value="blonde">Blonde</ion-select-option>
-          </ion-select>
-        </ion-item>
-      </nb-card-body>
-      <nb-card-footer>
-        <button nbButton status="primary" translate>FORMFILL.SUBMIT</button></nb-card-footer>
+      <ng-container *ngIf="haveFields">
+        <nb-card-body>
+          <ion-item *ngFor="let field of fieldList" lines="bottom">
+            <ion-label *ngIf="field.controlType !== 'checkbox'" [attr.for]="field.label" position="floating">
+              {{field.label}}
+            </ion-label>
+            <ng-container [ngSwitch]="field.controlType">
+              <ion-input *ngSwitchCase="'text'" [formControlName]="field.label" type="text" [required]="field.required"></ion-input>
+              <ion-input *ngSwitchCase="'number'" [formControlName]="field.label" type="number" [required]="field.required"></ion-input>
+              <ion-input *ngSwitchCase="'tel'" [formControlName]="field.label" type="tel" [required]="field.required"></ion-input>
+              <ion-input *ngSwitchCase="'email'" [formControlName]="field.label" type="email" [required]="field.required"></ion-input>
+              <nb-checkbox *ngSwitchCase="'checkbox'" [formControlName]="field.label" [required]="field.required">{{field.label}}</nb-checkbox>
+              <ion-select *ngSwitchCase="'select'" [formControlName]="field.label" [required]="field.required">
+                <ion-select-option *ngFor="let opt of field.options" [value]="opt">{{opt}}</ion-select-option>
+              </ion-select>
+              <ion-select *ngSwitchCase="'multiselect'" [formControlName]="field.label" multiple='true' [required]="field.required">
+                <ion-select-option *ngFor="let opt of field.options" [value]="opt">{{opt}}</ion-select-option>
+              </ion-select>
+            </ng-container>
+          </ion-item>
+        </nb-card-body>
+        <nb-card-footer>
+          <button nbButton status="primary" translate>FORMFILL.SUBMIT</button>
+        </nb-card-footer>
+      </ng-container>
     </nb-card>
   </form>
 </article>

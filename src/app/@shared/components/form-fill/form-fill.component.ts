@@ -1,4 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { FormGroup } from '@angular/forms';
+import { InputModel } from '../../models/input.model';
 
 @Component({
   selector: 'app-form-fill',
@@ -7,9 +9,17 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class FormFillComponent implements OnInit {
   @Input() formName = '';
-  @Input() formLogo: any;
+  @Input() formLogo: ArrayBuffer;
+  @Input() form: FormGroup;
+  @Input() fieldList: InputModel<string>[] = [];
 
   constructor() {}
 
-  ngOnInit() {}
+  ngOnInit() {
+  }
+
+  // Getters
+  haveFields() {
+    return this.fieldList.length >= 1;
+  }
 }
