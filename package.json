@@ -1,15 +1,17 @@
 {
   "name": "easyFormulaire",
-  "version": "0.0.17",
+  "version": "0.0.22",
+  "appCodeVersion": 73,
   "author": "Curedas Codjo",
   "homepage": "https://curedas-c.github.io/",
   "scripts": {
     "start": "ionic cap run android -l --external",
-    "build": "ionic cap build android --prod",
-    "build:full": "cordova-res android --skip-config --copy && ionic cap build android --prod",
+    "build": "ionic cap build android --prod && npm run post-build",
+    "build:full": "ionic cap build android --prod && cordova-res android --skip-config --copy && npm run post-build",
+    "post-build": "node ./build/post-build.js",
     "commit": "git-cz && npm run update:version",
-    "update:version": "standard-version && npm run versionning",
-    "versionning": "node ./build/build-pre.js"
+    "update:version": "npm run versioning && standard-version",
+    "versioning": "node ./build/build-pre.js"
   },
   "config": {
     "commitizen": {

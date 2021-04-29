@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
@@ -14,6 +14,7 @@ import {
   NbButtonModule,
   NbTabsetModule,
   NbCardModule,
+  NbListModule,
 } from '@nebular/theme';
 import { TranslateModule } from '@ngx-translate/core';
 import { FormFillModule } from '../@shared/components/form-fill/form-fill.module';
@@ -23,6 +24,7 @@ import { MatMenuModule } from '@angular/material/menu';
   imports: [
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
     IonicModule,
     FormCreatePageRoutingModule,
     TranslateModule.forChild(),
@@ -32,6 +34,7 @@ import { MatMenuModule } from '@angular/material/menu';
     NbCheckboxModule,
     NbTabsetModule,
     NbCardModule,
+    NbListModule,
     FormFillModule,
     MatMenuModule
   ],

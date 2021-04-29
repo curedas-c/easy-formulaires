@@ -33,7 +33,7 @@
               <ion-item lines="none">
                 <ion-icon slot="start" ios="language-outline" md="language"></ion-icon>
                 <ion-label translate>SIDEMENU.LANGUAGE</ion-label>
-                <ion-toggle (ionChange)="switch($event)"></ion-toggle>
+                <ion-toggle (ionChange)="switch($event)" [checked]="toggleChecked"></ion-toggle>
               </ion-item>
             </ion-list>
 
@@ -64,7 +64,7 @@
           </ion-content>
 
           <div class="version-number">
-            <ion-text color="medium">0.0.3</ion-text>
+            <ion-text color="medium">{{ version }}</ion-text>
           </div>
         </ion-menu>
         <ion-router-outlet id="main-content"></ion-router-outlet>

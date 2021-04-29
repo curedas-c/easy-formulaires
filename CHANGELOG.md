@@ -2,6 +2,41 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.22](///compare/v0.0.21...v0.0.22) (2021-04-29)
+
+
+### Features
+
+* implements form overview 28de023
+
+### [0.0.21](///compare/v0.0.20...v0.0.21) (2021-04-27)
+
+
+### Features
+
+* adds langguage switch feature 8fca16e
+
+### [0.0.20](///compare/v0.0.19...v0.0.20) (2021-04-27)
+
+
+### Features
+
+* updates commit process e0b34f8
+
+### [0.0.19](///compare/v0.0.18...v0.0.19) (2021-04-27)
+
+
+### Bug Fixes
+
+* fix language not setted when launching app c31bebf
+
+### [0.0.18](///compare/v0.0.17...v0.0.18) (2021-04-26)
+
+
+### Bug Fixes
+
+* fix version code updates step 849ff0a
+
 ### [0.0.17](///compare/v0.0.16...v0.0.17) (2021-04-25)
 
 
