@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.23](///compare/v0.0.22...v0.0.23) (2021-04-30)
+
+
+### Features
+
+* use flatted instead of built-in JSON object functions 1ccd809
+
 ### [0.0.22](///compare/v0.0.21...v0.0.22) (2021-04-29)
 
 
