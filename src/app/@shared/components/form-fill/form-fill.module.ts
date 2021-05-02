@@ -4,7 +4,7 @@ import { FormFillComponent } from './form-fill.component';
 import { NbCardModule, NbCheckboxModule, NbButtonModule } from '@nebular/theme';
 import { IonicModule } from '@ionic/angular';
 import { TranslateModule } from '@ngx-translate/core';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [FormFillComponent],
@@ -14,6 +14,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     NbCardModule,
     NbCheckboxModule,
     NbButtonModule,
+    FormsModule,
     ReactiveFormsModule,
     TranslateModule.forChild(),
   ],

@@ -10,16 +10,22 @@ import { InputModel } from '../../models/input.model';
 export class FormFillComponent implements OnInit {
   @Input() formName = '';
   @Input() formLogo: ArrayBuffer;
-  @Input() form: FormGroup;
   @Input() fieldList: InputModel<string>[] = [];
+  @Input() isOverview = false;
+  @Input() generatedForm: FormGroup = new FormGroup({});
 
   constructor() {}
 
-  ngOnInit() {
+  ngOnInit() {}
+
+  submitEntry() {
+    if (this.isOverview) {
+      return;
+    }
   }
 
   // Getters
-  haveFields() {
+  get haveFields() {
     return this.fieldList.length >= 1;
   }
 }

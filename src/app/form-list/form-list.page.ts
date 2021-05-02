@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { FormStateService } from '../@core/services/form-state.service';
+import { FormModel } from '../@shared/models/form.model';
 
 @Component({
   selector: 'app-form-list',
@@ -7,17 +10,24 @@ import { Router } from '@angular/router';
   styleUrls: ['./form-list.page.scss'],
 })
 export class FormListPage implements OnInit {
+  formList$: Observable<FormModel[]> = this.formState.formList$;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private formState: FormStateService) { }
 
   ngOnInit() {
   }
 
-  goFill() {
+  goFill(currentForm: FormModel) {
+    this.setCurrentForm(currentForm);
     this.router.navigateByUrl('/form-view/fill');
   }
 
-  goTable() {
+  goTable(currentForm: FormModel) {
+    this.setCurrentForm(currentForm);
     this.router.navigateByUrl('/form-view/table');
+  }
+
+  setCurrentForm(currentForm: FormModel) {
+    this.formState.setCurrentForm(currentForm);
   }
 }
