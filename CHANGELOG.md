@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.25](///compare/v0.0.24...v0.0.25) (2021-05-02)
+
+
+### Features
+
+* make pages use form state values e029da9
+
 ### [0.0.24](///compare/v0.0.23...v0.0.24) (2021-05-02)
 
 
