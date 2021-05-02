@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.24](///compare/v0.0.23...v0.0.24) (2021-05-02)
+
+
+### Features
+
+* set up global form state 9973275
+
 ### [0.0.23](///compare/v0.0.22...v0.0.23) (2021-04-30)
 
 
