@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { FormStateService } from '../@core/services/form-state.service';
 import { FormModel } from '../@shared/models/form.model';
+import { FormDataStateService } from '../@core/services/form-data-state.service';
 
 @Component({
   selector: 'app-form-list',
@@ -12,7 +13,7 @@ import { FormModel } from '../@shared/models/form.model';
 export class FormListPage implements OnInit {
   formList$: Observable<FormModel[]> = this.formState.formList$;
 
-  constructor(private router: Router, private formState: FormStateService) { }
+  constructor(private router: Router, private formState: FormStateService, private formDataState: FormDataStateService) { }
 
   ngOnInit() {
   }
@@ -29,5 +30,6 @@ export class FormListPage implements OnInit {
 
   setCurrentForm(currentForm: FormModel) {
     this.formState.setCurrentForm(currentForm);
+    this.formDataState.getFormData(currentForm.formID);
   }
 }

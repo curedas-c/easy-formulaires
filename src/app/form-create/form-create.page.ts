@@ -126,6 +126,7 @@ export class FormCreatePage implements OnInit {
     }
 
     const NEWFORM = new FormModel({
+      formID: `${this.formName.replace('/\s/g', '')}${Date.now()}`,
       formName: this.formName,
       formLogo: this.formLogo,
       fieldList: this.fieldList

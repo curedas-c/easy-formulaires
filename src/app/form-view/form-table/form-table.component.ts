@@ -1,44 +1,92 @@
-import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import {
+  AfterViewInit,
+  ChangeDetectorRef,
+  Component,
+  OnDestroy,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
 import { MatPaginator } from '@angular/material/paginator';
+import { FormDataStateService } from 'src/app/@core/services/form-data-state.service';
+import { takeUntil } from 'rxjs/operators';
+import { Subject } from 'rxjs';
+import { FormStateService } from 'src/app/@core/services/form-state.service';
+import { FileService } from 'src/app/@core/services/file.service';
 
 @Component({
   selector: 'app-form-table',
   templateUrl: './form-table.component.html',
   styleUrls: ['./form-table.component.scss'],
 })
-export class FormTableComponent implements OnInit, AfterViewInit {
-  @ViewChild(MatSort) sort: MatSort;
-  @ViewChild(MatPaginator) paginator: MatPaginator;
+export class FormTableComponent implements OnInit, OnDestroy, AfterViewInit {
+  @ViewChild(MatSort, { static: false }) sort: MatSort;
+  @ViewChild(MatPaginator, { static: false }) paginator: MatPaginator;
 
-  dataSource = new MatTableDataSource([
-    { position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H' },
-    { position: 2, name: 'Helium', weight: 4.0026, symbol: 'He' },
-    { position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li' },
-    { position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be' },
-    { position: 5, name: 'Boron', weight: 10.811, symbol: 'B' },
-    { position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C' },
-    { position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N' },
-    { position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O' },
-    { position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F' },
-    { position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne' },
-  ]);
+  dataSource = new MatTableDataSource([]);
+  propertyList;
+  formName = '';
+  fileType: 'XLSX' | 'CSV' = 'XLSX';
+  private unsubscribe$ = new Subject();
 
-  formModel: any = {
-    position: 1,
-    name: 'Hydrogen',
-    weight: 1.0079,
-    symbol: 'H',
-  };
-  propertyList = Object.keys(this.formModel);
+  constructor(
+    private formDataState: FormDataStateService,
+    private formState: FormStateService,
+    private cdr: ChangeDetectorRef,
+    private fileService: FileService
+  ) {}
 
-  constructor() {}
-
-  ngOnInit() {}
+  ngOnInit() {
+    this.getFormName();
+    this.getFormData();
+  }
 
   ngAfterViewInit() {
     this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator;
   }
+
+  ngOnDestroy() {
+    this.unsubscribe$.next();
+    this.unsubscribe$.complete();
+  }
+
+  getFormName() {
+    this.formState.currentForm$
+      .pipe(takeUntil(this.unsubscribe$))
+      .subscribe((currentForm) => {
+        if (currentForm) {
+          this.formName = currentForm.formName;
+        }
+      });
+  }
+
+  getFormData() {
+    this.formDataState.currentFormData$
+      .pipe(takeUntil(this.unsubscribe$))
+      .subscribe((data) => {
+        if (data) {
+          this.dataSource = new MatTableDataSource(data.formData);
+          if (data.formData.length > 0) {
+            this.propertyList = Object.keys(data.formData[0]);
+            this.cdr.detectChanges();
+            this.dataSource.sort = this.sort;
+            this.dataSource.paginator = this.paginator;
+          }
+        }
+      });
+  }
+
+  saveFile() {
+    const options = {
+      fileName: this.formName,
+      data: this.dataSource.data,
+      type: this.fileType
+    };
+
+    this.fileService.saveOnStorage(options);
+  }
+
+  shareFile() {}
 }
