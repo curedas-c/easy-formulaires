@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.26](///compare/v0.0.25...v0.0.26) (2021-05-07)
+
+
+### Features
+
+* implements form data state and file service a8ba717
+
+### [0.0.25](///compare/v0.0.24...v0.0.25) (2021-05-02)
+
+
+### Features
+
+* make pages use form state values e029da9
+
+### [0.0.24](///compare/v0.0.23...v0.0.24) (2021-05-02)
+
+
+### Features
+
+* set up global form state 9973275
+
 ### [0.0.23](///compare/v0.0.22...v0.0.23) (2021-04-30)
 
 

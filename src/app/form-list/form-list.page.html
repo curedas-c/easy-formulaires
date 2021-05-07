@@ -19,52 +19,18 @@
 
 
   <section id="form-list">
-    <nb-card accent="info">
-      <nb-card-header (click)="goFill()">
+    <nb-card *ngFor="let form of formList$ | async" accent="info">
+      <nb-card-header (click)="goFill(form)">
         <ion-item lines="none">
           <ion-avatar slot="start">
-            <img src="assets/icon/form.svg">
+            <img [src]="form?.formLogo ? form.formLogo : 'assets/icon/form.svg'">
           </ion-avatar>
-          <ion-label>Parents Advice Form</ion-label>
+          <ion-label>{{ form?.formName }}</ion-label>
         </ion-item>
       </nb-card-header>
       <nb-card-body>
-        <ion-button (click)="goTable()" color="light" expand="block" translate>FORMLIST.MENU.VIEWTABLE</ion-button>
-        <ion-button (click)="goFill()" color="secondary" fill="clear" expand="block" translate>
-          <ion-icon name="create-outline"></ion-icon> FORMLIST.MENU.FILL
-        </ion-button>
-      </nb-card-body>
-    </nb-card>
-
-    <nb-card accent="info">
-      <nb-card-header (click)="goFill()">
-        <ion-item lines="none">
-          <ion-avatar slot="start">
-            <img src="assets/icon/form.svg">
-          </ion-avatar>
-          <ion-label>Parents Advice Form</ion-label>
-        </ion-item>
-      </nb-card-header>
-      <nb-card-body>
-        <ion-button (click)="goTable()" color="light" expand="block" translate>FORMLIST.MENU.VIEWTABLE</ion-button>
-        <ion-button (click)="goFill()" color="secondary" fill="clear" expand="block" translate>
-          <ion-icon name="create-outline"></ion-icon> FORMLIST.MENU.FILL
-        </ion-button>
-      </nb-card-body>
-    </nb-card>
-
-    <nb-card accent="info">
-      <nb-card-header (click)="goFill()">
-        <ion-item lines="none">
-          <ion-avatar slot="start">
-            <img src="assets/icon/form.svg">
-          </ion-avatar>
-          <ion-label>Parents Advice Form</ion-label>
-        </ion-item>
-      </nb-card-header>
-      <nb-card-body>
-        <ion-button (click)="goTable()" color="light" expand="block" translate>FORMLIST.MENU.VIEWTABLE</ion-button>
-        <ion-button (click)="goFill()" color="secondary" fill="clear" expand="block" translate>
+        <ion-button (click)="goTable(form)" color="light" expand="block" translate>FORMLIST.MENU.VIEWTABLE</ion-button>
+        <ion-button (click)="goFill(form)" color="secondary" fill="clear" expand="block" translate>
           <ion-icon name="create-outline"></ion-icon> FORMLIST.MENU.FILL
         </ion-button>
       </nb-card-body>

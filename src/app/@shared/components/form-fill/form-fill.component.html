@@ -4,7 +4,7 @@
   </ion-text>
 
   <form>
-    <nb-card [formGroup]="form">
+    <nb-card [formGroup]="generatedForm">
       <nb-card-header *ngIf="formLogo">
         <ion-img [src]="formLogo"></ion-img>
       </nb-card-header>
@@ -30,7 +30,7 @@
           </ion-item>
         </nb-card-body>
         <nb-card-footer>
-          <button nbButton status="primary" translate>FORMFILL.SUBMIT</button>
+          <button nbButton (click)="submitEntry()" [disabled]="!generatedForm.valid" type="submit" status="primary" translate>FORMFILL.SUBMIT</button>
         </nb-card-footer>
       </ng-container>
     </nb-card>

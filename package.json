@@ -1,7 +1,7 @@
 {
   "name": "easyFormulaire",
-  "version": "0.0.23",
-  "appCodeVersion": 74,
+  "version": "0.0.26",
+  "appCodeVersion": 77,
   "author": "Curedas Codjo",
   "homepage": "https://curedas-c.github.io/",
   "scripts": {
@@ -31,6 +31,7 @@
     "@angular/router": "~11.2.0",
     "@capacitor/android": "^3.0.0-rc.0",
     "@capacitor/core": "^3.0.0-rc.0",
+    "@capacitor/filesystem": "^0.5.3",
     "@capacitor/storage": "^0.3.6",
     "@ionic/angular": "^5.5.2",
     "@nebular/eva-icons": "7.0.0",

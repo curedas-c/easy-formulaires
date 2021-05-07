@@ -1,23 +1,22 @@
-import { FormGroup } from "@angular/forms";
 import { InputModel } from "./input.model";
 
 export class FormModel {
+  formID: string;
   formName: string;
   formLogo: ArrayBuffer;
   fieldList:  InputModel<string>[];
-  generatedForm: FormGroup;
 
   constructor(
     options: {
+      formID: string;
       formName: string;
       formLogo?: ArrayBuffer;
       fieldList: InputModel<string>[];
-      generatedForm?: FormGroup;
     }
   ) {
+    this.formID = options.formID;
     this.formName = options.formName;
     this.formLogo = options.formLogo;
     this.fieldList = options.fieldList;
-    this.generatedForm = options.generatedForm;
   }
 }

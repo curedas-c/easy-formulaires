@@ -3,8 +3,10 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { IonSlides } from '@ionic/angular';
 import { InputModel } from '../@shared/models/input.model';
 import { requiredMatchValuesValidator } from '../@core/validators/required-match-values.validator';
-import { toFormGroup } from '../@shared/utils/form-construtor';
-import { StorageService } from '../@core/services/storage.service';
+import { FormModel } from '../@shared/models/form.model';
+import { FormStateService } from '../@core/services/form-state.service';
+import { toFormGroup } from 'src/app/@shared/utils/form-construtor';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-form-create',
@@ -21,7 +23,7 @@ export class FormCreatePage implements OnInit {
   fieldForm: FormGroup;
   generatedForm: FormGroup = new FormGroup({});
 
-  constructor(private fb: FormBuilder, private storage: StorageService) {}
+  constructor(private fb: FormBuilder, private formState: FormStateService, private router: Router) {}
 
   ngOnInit() {
     this.initFieldForm();
@@ -84,12 +86,14 @@ export class FormCreatePage implements OnInit {
     const fieldToVerify = new InputModel(
       this.fieldForm.value
     ) as InputModel<string>;
+
     let isFieldExist = false;
     this.fieldList.forEach((field) => {
       if (field.label.toLowerCase() === fieldToVerify.label.toLowerCase()) {
         isFieldExist = true;
       }
     });
+
     if (isFieldExist) {
       // TODO: use popup service
       console.log('this field already exist');
@@ -98,16 +102,18 @@ export class FormCreatePage implements OnInit {
 
     this.fieldList.push(fieldToVerify);
     this.generateForm();
+    this.resetForm();
   }
 
   generateForm() {
     this.generatedForm = toFormGroup(this.fieldList);
-    this.fieldForm.reset();
+  }
+
+  resetForm() {
     this.initFieldForm();
   }
 
   saveForm() {
-    // const FORM = new FormModel({'', ''});
     if (this.formName === '') {
       // TODO: use popup service
       console.log('form needs a name');
@@ -118,6 +124,16 @@ export class FormCreatePage implements OnInit {
       console.log('form needs at least one field');
       return;
     }
+
+    const NEWFORM = new FormModel({
+      formID: `${this.formName.replace('/\s/g', '')}${Date.now()}`,
+      formName: this.formName,
+      formLogo: this.formLogo,
+      fieldList: this.fieldList
+    });
+
+    this.formState.addForm(NEWFORM);
+    this.router.navigate(['/form-list']);
   }
 
   // Getters
