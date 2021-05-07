@@ -14,6 +14,7 @@ import { takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 import { FormStateService } from 'src/app/@core/services/form-state.service';
 import { FileService } from 'src/app/@core/services/file.service';
+import { FileExtension } from 'src/app/@shared/models/fileExtension.model';
 
 @Component({
   selector: 'app-form-table',
@@ -27,7 +28,7 @@ export class FormTableComponent implements OnInit, OnDestroy, AfterViewInit {
   dataSource = new MatTableDataSource([]);
   propertyList;
   formName = '';
-  fileType: 'XLSX' | 'CSV' = 'XLSX';
+  fileType: FileExtension = 'XLSX';
   private unsubscribe$ = new Subject();
 
   constructor(

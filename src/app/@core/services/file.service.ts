@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Filesystem, Directory, Encoding } from '@capacitor/filesystem';
+import { FileExtension } from 'src/app/@shared/models/fileExtension.model';
 
 @Injectable({
   providedIn: 'root',
@@ -7,18 +8,28 @@ import { Filesystem, Directory, Encoding } from '@capacitor/filesystem';
 export class FileService {
   constructor() {}
 
-  async saveOnStorage(options: {fileName: string; data: any[]; type: 'CSV' | 'XLSX'}) {
-    let {fileName} = options;
-    const {data, type} = options;
+  async saveOnStorage(options: {
+    fileName: string;
+    data: any[];
+    type: FileExtension;
+  }) {
+    let { fileName } = options;
+    const { data, type } = options;
 
     fileName = `${fileName}.${type}`;
-    const formattedData = this.transformToCSV(data);
+    const FORMATTED_DATA = this.transformToCSV(data);
 
-    await Filesystem.writeFile({
+    const FILE_OPTIONS = {
       path: fileName,
-      data: formattedData,
+      data: FORMATTED_DATA,
       directory: Directory.Documents,
       encoding: Encoding.UTF8,
+    };
+
+    await this.getPermission().then(permission => {
+      if (permission) {
+        this.saveWithCapacitor(FILE_OPTIONS);
+      }
     });
   }
 
@@ -33,5 +44,25 @@ export class FileService {
           .toString()
       )
       .join('\n');
+  }
+
+  async saveWithCapacitor(fileOptions: any) {
+    await Filesystem.writeFile(fileOptions);
+  }
+
+  async getPermission() {
+    const PERMISSION_STATE = await Filesystem.checkPermissions();
+    if (PERMISSION_STATE.publicStorage === 'denied') {
+      return this.requestPermission();
+    }
+    else {
+      return Promise.resolve(true);
+    }
+  }
+
+  async requestPermission() {
+    const PERMISSION_STATE = await Filesystem.requestPermissions();
+    const HAVE_PERMISSION = PERMISSION_STATE.publicStorage !== 'denied';
+    return Promise.resolve(HAVE_PERMISSION);
   }
 }
