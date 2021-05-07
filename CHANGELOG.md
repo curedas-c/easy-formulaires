@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.27](///compare/v0.0.26...v0.0.27) (2021-05-07)
+
+
+### Bug Fixes
+
+* fix back button always closing app 64bbb7b
+
 ### [0.0.26](///compare/v0.0.25...v0.0.26) (2021-05-07)
 
 
