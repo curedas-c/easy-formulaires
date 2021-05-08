@@ -17,20 +17,33 @@ export class FileService {
     const { data, type } = options;
 
     fileName = `${fileName}.${type}`;
-    const FORMATTED_DATA = this.transformToCSV(data);
+    let formattedData;
+
+    if (type === 'CSV') {
+      formattedData = this.transformToCSV(data);
+    }
+    else {
+      formattedData = data;
+    }
 
     const FILE_OPTIONS = {
       path: fileName,
-      data: FORMATTED_DATA,
+      data: formattedData,
       directory: Directory.Documents,
       encoding: Encoding.UTF8,
     };
 
+    let isFileSaved = true;
     await this.getPermission().then(permission => {
       if (permission) {
         this.saveWithCapacitor(FILE_OPTIONS);
       }
+      else {
+        isFileSaved = false;
+      }
     });
+
+    return Promise.resolve(isFileSaved);
   }
 
   transformToCSV(data: any): string {

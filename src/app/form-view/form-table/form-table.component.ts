@@ -15,6 +15,8 @@ import { Subject } from 'rxjs';
 import { FormStateService } from 'src/app/@core/services/form-state.service';
 import { FileService } from 'src/app/@core/services/file.service';
 import { FileExtension } from 'src/app/@shared/models/fileExtension.model';
+import { ToastService } from 'src/app/@core/services/toast.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-form-table',
@@ -35,7 +37,9 @@ export class FormTableComponent implements OnInit, OnDestroy, AfterViewInit {
     private formDataState: FormDataStateService,
     private formState: FormStateService,
     private cdr: ChangeDetectorRef,
-    private fileService: FileService
+    private fileService: FileService,
+    private toast: ToastService,
+    private translate: TranslateService
   ) {}
 
   ngOnInit() {
@@ -86,7 +90,20 @@ export class FormTableComponent implements OnInit, OnDestroy, AfterViewInit {
       type: this.fileType
     };
 
-    this.fileService.saveOnStorage(options);
+    this.fileService.saveOnStorage(options).then(isFileSaved => {
+      if (isFileSaved) {
+        this.toast.presentToast(
+          this.translate.instant('TOAST.FILE_SAVED'),
+          'primary'
+        );
+      }
+      else {
+        this.toast.presentToast(
+          this.translate.instant('TOAST.FILE_NOT_SAVED'),
+          'danger'
+        );
+      }
+    });
   }
 
   shareFile() {}
