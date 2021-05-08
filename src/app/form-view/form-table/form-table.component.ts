@@ -30,7 +30,7 @@ export class FormTableComponent implements OnInit, OnDestroy, AfterViewInit {
   dataSource = new MatTableDataSource([]);
   propertyList;
   formName = '';
-  fileType: FileExtension = 'XLSX';
+  fileType: FileExtension = 'CSV';
   private unsubscribe$ = new Subject();
 
   constructor(
