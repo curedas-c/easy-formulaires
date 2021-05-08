@@ -87,30 +87,35 @@ export class FormTableComponent implements OnInit, OnDestroy, AfterViewInit {
     const options = {
       fileName: this.formName,
       data: this.dataSource.data,
-      type: this.fileType
+      type: this.fileType,
     };
 
-    this.fileService.saveOnStorage(options).then(isFileSaved => {
-      if (isFileSaved) {
+    this.fileService.saveOnStorage(options).then(
+      () => {
         this.toast.presentToast(
           this.translate.instant('TOAST.FILE_SAVED'),
           'primary'
         );
+      },
+      (err) => {
+        this.toast
+          .presentToast(
+            this.translate.instant('TOAST.FILE_NOT_SAVED'),
+            'danger',
+            true
+          )
+          .then(() => {
+            this.fileService.openAppSettings();
+          });
       }
-      else {
-        this.toast.presentToast(
-          this.translate.instant('TOAST.FILE_NOT_SAVED'),
-          'danger'
-        );
-      }
-    });
+    );
   }
 
   shareFile() {
     const options = {
       fileName: this.formName,
       data: this.dataSource.data,
-      type: this.fileType
+      type: this.fileType,
     };
 
     this.fileService.share(options);

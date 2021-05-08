@@ -2,12 +2,13 @@ import { Injectable } from '@angular/core';
 import { Filesystem, Directory, Encoding } from '@capacitor/filesystem';
 import { FileExtension } from 'src/app/@shared/models/fileExtension.model';
 import { Share } from '@capacitor/share';
+import { OpenNativeSettings } from '@ionic-native/open-native-settings/ngx';
 
 @Injectable({
   providedIn: 'root',
 })
 export class FileService {
-  constructor() {}
+  constructor(private openNativeSettings: OpenNativeSettings) {}
 
   async saveOnStorage(options: {
     fileName: string;
@@ -33,16 +34,17 @@ export class FileService {
       encoding: Encoding.UTF8,
     };
 
-    let isFileSaved = true;
-    await this.getPermission().then((permission) => {
-      if (permission) {
-        this.saveWithCapacitor(FILE_OPTIONS);
-      } else {
-        isFileSaved = false;
-      }
-    });
+    const PERMISSION_STATE = await Filesystem.checkPermissions();
+    if (PERMISSION_STATE.publicStorage === 'denied') {
+      await Filesystem.requestPermissions();
+    }
 
-    return Promise.resolve(isFileSaved);
+    try {
+      await this.saveWithCapacitor(FILE_OPTIONS);
+      return Promise.resolve(true);
+    } catch (error) {
+      return Promise.reject(error);
+    }
   }
 
   async share(options: { fileName: string; data: any[]; type: FileExtension }) {
@@ -66,20 +68,8 @@ export class FileService {
     });
   }
 
-  // Permissions
-  private async getPermission() {
-    const PERMISSION_STATE = await Filesystem.checkPermissions();
-    if (PERMISSION_STATE.publicStorage === 'denied') {
-      return this.requestPermission();
-    } else {
-      return Promise.resolve(true);
-    }
-  }
-
-  private async requestPermission() {
-    const PERMISSION_STATE = await Filesystem.requestPermissions();
-    const HAVE_PERMISSION = PERMISSION_STATE.publicStorage !== 'denied';
-    return Promise.resolve(HAVE_PERMISSION);
+  openAppSettings() {
+    const settings = this.openNativeSettings.open('application_details');
   }
 
   // Utilities

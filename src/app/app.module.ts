@@ -14,6 +14,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+import { OpenNativeSettings } from '@ionic-native/open-native-settings/ngx';
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -35,9 +36,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
       },
     }),
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+  providers: [
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    OpenNativeSettings,
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
