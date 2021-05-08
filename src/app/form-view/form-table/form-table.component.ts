@@ -106,5 +106,13 @@ export class FormTableComponent implements OnInit, OnDestroy, AfterViewInit {
     });
   }
 
-  shareFile() {}
+  shareFile() {
+    const options = {
+      fileName: this.formName,
+      data: this.dataSource.data,
+      type: this.fileType
+    };
+
+    this.fileService.share(options);
+  }
 }

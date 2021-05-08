@@ -38,7 +38,7 @@
       <mat-paginator [pageSizeOptions]="[5, 10]"></mat-paginator>
       <ion-toolbar>
         <ion-buttons slot="secondary">
-          <ion-button>
+          <ion-button (click)="shareFile()">
             <ion-icon slot="icon-only" name="share-social-outline"></ion-icon>
           </ion-button>
         </ion-buttons>

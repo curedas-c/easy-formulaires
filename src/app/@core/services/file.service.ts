@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Filesystem, Directory, Encoding } from '@capacitor/filesystem';
 import { FileExtension } from 'src/app/@shared/models/fileExtension.model';
+import { Share } from '@capacitor/share';
 
 @Injectable({
   providedIn: 'root',
@@ -21,8 +22,7 @@ export class FileService {
 
     if (type === 'CSV') {
       formattedData = this.transformToCSV(data);
-    }
-    else {
+    } else {
       formattedData = data;
     }
 
@@ -34,11 +34,10 @@ export class FileService {
     };
 
     let isFileSaved = true;
-    await this.getPermission().then(permission => {
+    await this.getPermission().then((permission) => {
       if (permission) {
         this.saveWithCapacitor(FILE_OPTIONS);
-      }
-      else {
+      } else {
         isFileSaved = false;
       }
     });
@@ -46,7 +45,45 @@ export class FileService {
     return Promise.resolve(isFileSaved);
   }
 
-  transformToCSV(data: any): string {
+  async share(options: { fileName: string; data: any[]; type: FileExtension }) {
+    let { fileName } = options;
+    const { data, type } = options;
+    const CSV_DATA = this.transformToCSV(data);
+    fileName = `${fileName}.${type}`;
+
+    const FILE_OPTIONS = {
+      path: fileName,
+      data: CSV_DATA,
+      directory: Directory.Cache,
+      encoding: Encoding.UTF8,
+    };
+
+    this.saveWithCapacitor(FILE_OPTIONS).then((file) => {
+      Share.share({
+        title: fileName,
+        url: file.uri,
+      });
+    });
+  }
+
+  // Permissions
+  private async getPermission() {
+    const PERMISSION_STATE = await Filesystem.checkPermissions();
+    if (PERMISSION_STATE.publicStorage === 'denied') {
+      return this.requestPermission();
+    } else {
+      return Promise.resolve(true);
+    }
+  }
+
+  private async requestPermission() {
+    const PERMISSION_STATE = await Filesystem.requestPermissions();
+    const HAVE_PERMISSION = PERMISSION_STATE.publicStorage !== 'denied';
+    return Promise.resolve(HAVE_PERMISSION);
+  }
+
+  // Utilities
+  private transformToCSV(data: any): string {
     const csv = [Object.keys(data[0])].concat(data);
     return csv
       .map((row) =>
@@ -59,23 +96,7 @@ export class FileService {
       .join('\n');
   }
 
-  async saveWithCapacitor(fileOptions: any) {
-    await Filesystem.writeFile(fileOptions);
-  }
-
-  async getPermission() {
-    const PERMISSION_STATE = await Filesystem.checkPermissions();
-    if (PERMISSION_STATE.publicStorage === 'denied') {
-      return this.requestPermission();
-    }
-    else {
-      return Promise.resolve(true);
-    }
-  }
-
-  async requestPermission() {
-    const PERMISSION_STATE = await Filesystem.requestPermissions();
-    const HAVE_PERMISSION = PERMISSION_STATE.publicStorage !== 'denied';
-    return Promise.resolve(HAVE_PERMISSION);
+  private async saveWithCapacitor(fileOptions: any) {
+    return await Filesystem.writeFile(fileOptions);
   }
 }
