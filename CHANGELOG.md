@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.34](///compare/v0.0.33...v0.0.34) (2021-05-08)
+
+
+### Bug Fixes
+
+* fix permission request behavior 48ff7a8
+
 ### [0.0.33](///compare/v0.0.32...v0.0.33) (2021-05-08)
 
 
