@@ -54,5 +54,11 @@
   },
   "FORMTABLE": {
     "TITLE": "Form Data"
+  },
+  "TOAST": {
+    "ENTRY_SAVED": "Entry Saved!",
+    "FIELD_EXIST": "Field already exist!",
+    "FORM_NEED_NAME": "Form needs a name",
+    "FORM_NEED_FIELD": "Form needs at least 1 field"
   }
 }

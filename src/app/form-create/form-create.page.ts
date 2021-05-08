@@ -7,6 +7,8 @@ import { FormModel } from '../@shared/models/form.model';
 import { FormStateService } from '../@core/services/form-state.service';
 import { toFormGroup } from 'src/app/@shared/utils/form-construtor';
 import { Router } from '@angular/router';
+import { ToastService } from '../@core/services/toast.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-form-create',
@@ -23,7 +25,13 @@ export class FormCreatePage implements OnInit {
   fieldForm: FormGroup;
   generatedForm: FormGroup = new FormGroup({});
 
-  constructor(private fb: FormBuilder, private formState: FormStateService, private router: Router) {}
+  constructor(
+    private fb: FormBuilder,
+    private formState: FormStateService,
+    private router: Router,
+    private toast: ToastService,
+    private translate: TranslateService
+  ) {}
 
   ngOnInit() {
     this.initFieldForm();
@@ -95,8 +103,10 @@ export class FormCreatePage implements OnInit {
     });
 
     if (isFieldExist) {
-      // TODO: use popup service
-      console.log('this field already exist');
+      this.toast.presentToast(
+        this.translate.instant('TOAST.FIELD_EXIST'),
+        'danger'
+      );
       return;
     }
 
@@ -115,21 +125,25 @@ export class FormCreatePage implements OnInit {
 
   saveForm() {
     if (this.formName === '') {
-      // TODO: use popup service
-      console.log('form needs a name');
+      this.toast.presentToast(
+        this.translate.instant('TOAST.FORM_NEED_NAME'),
+        'danger'
+      );
       return;
     }
     if (this.fieldList.length <= 0) {
-      // TODO: use popup service
-      console.log('form needs at least one field');
+      this.toast.presentToast(
+        this.translate.instant('TOAST.FORM_NEED_FIELD'),
+        'danger'
+      );
       return;
     }
 
     const NEWFORM = new FormModel({
-      formID: `${this.formName.replace('/\s/g', '')}${Date.now()}`,
+      formID: `${this.formName.replace('/s/g', '')}${Date.now()}`,
       formName: this.formName,
       formLogo: this.formLogo,
-      fieldList: this.fieldList
+      fieldList: this.fieldList,
     });
 
     this.formState.addForm(NEWFORM);

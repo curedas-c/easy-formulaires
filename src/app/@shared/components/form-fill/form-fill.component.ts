@@ -5,6 +5,8 @@ import { InputModel } from '../../models/input.model';
 import { FormDataModel } from '../../models/formData.model';
 import { takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
+import { ToastService } from '../../../@core/services/toast.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-form-fill',
@@ -20,7 +22,7 @@ export class FormFillComponent implements OnInit, OnDestroy {
   currentFormData: FormDataModel;
   private unsubscribe$ = new Subject();
 
-  constructor(private formDataState: FormDataStateService) {}
+  constructor(private formDataState: FormDataStateService, private toast: ToastService, private translate: TranslateService) {}
 
   ngOnInit() {
     this.formDataState.currentFormData$
@@ -44,6 +46,7 @@ export class FormFillComponent implements OnInit, OnDestroy {
     this.currentFormData.formData.push(this.generatedForm.value);
     this.formDataState.addFormData(this.currentFormData.formID, this.generatedForm.value);
     this.generatedForm.reset();
+    this.toast.presentToast(this.translate.instant('TOAST.ENTRY_SAVED'), 'primary');
   }
 
   // Getters

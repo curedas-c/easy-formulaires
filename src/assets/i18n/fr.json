@@ -54,5 +54,11 @@
   },
   "FORMTABLE": {
     "TITLE": "Données Formulaire"
+  },
+  "TOAST": {
+    "ENTRY_SAVED": "Entrée Sauvegardée!",
+    "FIELD_EXIST": "Ce champs existe déjà!",
+    "FORM_NEED_NAME": "Veuillez entrer un nom de formulaire.",
+    "FORM_NEED_FIELD": "Créez au moins 1 champs."
   }
 }
