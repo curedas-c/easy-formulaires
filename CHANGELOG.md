@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.30](///compare/v0.0.29...v0.0.30) (2021-05-08)
+
+
+### Bug Fixes
+
+* fix colors not matching between components ef7fdd2
+
 ### [0.0.29](///compare/v0.0.28...v0.0.29) (2021-05-08)
 
 
