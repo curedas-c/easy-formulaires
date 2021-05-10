@@ -3,8 +3,8 @@
     "SETTINGS": "Settings",
     "LANGUAGE": "English",
     "LINK": {
-      "CREATE": "Create A Form",
-      "LIST": "Form List"
+      "CREATE": "Create A Survey",
+      "LIST": "Survey List"
     },
     "DEVELOPER": {
       "TITLE": "Developer",
@@ -12,14 +12,14 @@
     }
   },
   "FORMLIST": {
-    "TITLE": "Form List",
+    "TITLE": "Surveys",
     "MENU": {
-      "FILL": "Fill Form",
+      "FILL": "Fill Survey",
       "VIEWTABLE": "View Table"
     }
   },
   "FORMCREATE": {
-    "TITLE": "Form Creation",
+    "TITLE": "Survey Creation",
     "SAVE": "Save",
     "BUTTONS": {
       "NEXTSLIDE": "Next",
@@ -29,8 +29,8 @@
     "FORMINPUT": {
       "FIELDREQUIRED": "is the field required ?",
       "VALUES": "Possible Values (separated by comma)",
-      "FORMNAME": "Form name",
-      "FILE": "Form Logo (optional)",
+      "FORMNAME": "Survey name",
+      "FILE": "Survey Logo (optional)",
       "LABELNAME": "Input Name",
       "TYPES": "Input Type",
       "OPTIONTEXT": "Text",
@@ -42,25 +42,25 @@
       "OPTIONPHONE": "Phone"
     },
     "OVERVIEW": {
-      "FORMVIEW": "Form Overview",
-      "INPUTVIEW": "Input Overview"
+      "FORMVIEW": "Overview",
+      "INPUTVIEW": "Edit Inputs"
     }
   },
   "FORMVIEW": {
-    "TITLE": "Form"
+    "TITLE": "Survey"
   },
   "FORMFILL": {
     "SUBMIT": "Submit"
   },
   "FORMTABLE": {
-    "TITLE": "Form Data"
+    "TITLE": "Survey Data"
   },
   "TOAST": {
     "ENTRY_SAVED": "Entry Saved!",
     "FIELD_EXIST": "Field already exist!",
-    "FORM_NEED_NAME": "Form needs a name",
-    "FORM_NEED_FIELD": "Form needs at least 1 field",
-    "FILE_SAVED": "File Saved!",
+    "FORM_NEED_NAME": "Survey needs a name",
+    "FORM_NEED_FIELD": "Survey needs at least 1 field",
+    "FILE_SAVED": "File Saved on Document Folder.",
     "FILE_NOT_SAVED": "Set Read/Write Access from app settings"
   }
 }
