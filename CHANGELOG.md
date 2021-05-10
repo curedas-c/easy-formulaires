@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.38](///compare/v0.0.37...v0.0.38) (2021-05-10)
+
+
+### Features
+
+* optimize image load of form-list page 50ab34f
+
 ### [0.0.37](///compare/v0.0.36...v0.0.37) (2021-05-10)
 
 
