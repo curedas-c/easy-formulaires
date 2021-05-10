@@ -23,7 +23,7 @@
       <nb-card-header (click)="goFill(form)">
         <ion-item lines="none">
           <ion-avatar slot="start">
-            <img [src]="form?.formLogo ? form.formLogo : 'assets/icon/form.svg'">
+            <ion-img [src]="form?.formLogo ? form.formLogo : 'assets/icon/form.svg'"></ion-img>
           </ion-avatar>
           <ion-label>{{ form?.formName }}</ion-label>
         </ion-item>
