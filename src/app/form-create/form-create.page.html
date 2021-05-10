@@ -58,7 +58,7 @@
                 <nb-option value="multiselect" translate>FORMCREATE.FORMINPUT.OPTIONMULTISELECT</nb-option>
               </nb-select>
             </div>
-            <div class="fullwidth">
+            <div *ngIf="!isFieldTrueFalse" class="fullwidth">
               <nb-checkbox formControlName="required" status="basic">
                 {{'FORMCREATE.FORMINPUT.FIELDREQUIRED' | translate}}</nb-checkbox>
             </div>

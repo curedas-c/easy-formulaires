@@ -36,11 +36,11 @@ import { OpenNativeSettings } from '@ionic-native/open-native-settings/ngx';
       },
     }),
     FormsModule,
-    ReactiveFormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    OpenNativeSettings,
+    OpenNativeSettings
   ],
   bootstrap: [AppComponent],
 })

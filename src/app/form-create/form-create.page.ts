@@ -187,4 +187,8 @@ export class FormCreatePage implements OnInit {
   get haveFieldOrInfo() {
     return this.formName !== '' || this.fieldList.length >= 1;
   }
+
+  get isFieldTrueFalse() {
+    return this.fieldForm.controls.controlType.value === 'checkbox';
+  }
 }
