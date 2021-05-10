@@ -20,7 +20,7 @@ import { OpenNativeSettings } from '@ionic-native/open-native-settings/ngx';
   entryComponents: [],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(),
+    IonicModule.forRoot({ hardwareBackButton: false }),
     AppRoutingModule,
     NoopAnimationsModule,
     NbThemeModule.forRoot({ name: 'default' }),

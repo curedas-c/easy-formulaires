@@ -9,6 +9,8 @@ import { toFormGroup } from 'src/app/@shared/utils/form-construtor';
 import { Router } from '@angular/router';
 import { ToastService } from '../@core/services/toast.service';
 import { TranslateService } from '@ngx-translate/core';
+import { App } from '@capacitor/app';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-form-create',
@@ -24,14 +26,35 @@ export class FormCreatePage implements OnInit {
   fieldList: InputModel<string>[] = [];
   fieldForm: FormGroup;
   generatedForm: FormGroup = new FormGroup({});
+  haveAlert = false;
 
   constructor(
     private fb: FormBuilder,
     private formState: FormStateService,
     private router: Router,
     private toast: ToastService,
-    private translate: TranslateService
-  ) {}
+    private translate: TranslateService,
+    private location: Location
+  ) {
+    App.addListener('backButton', async () => {
+      if (this.haveAlert) {
+        return;
+      }
+      if (this.formName || this.fieldList.length >= 1) {
+        this.haveAlert = true;
+        this.toast
+          .presentAlert(this.translate.instant('TOAST.CONFIRM_MESSAGE'))
+          .then((button) => {
+            this.haveAlert = false;
+            if (button.role !== 'cancel') {
+              this.location.back();
+            }
+          });
+      } else {
+        this.location.back();
+      }
+    });
+  }
 
   ngOnInit() {
     this.initFieldForm();

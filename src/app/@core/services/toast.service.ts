@@ -1,19 +1,28 @@
 import { Injectable } from '@angular/core';
-import { ToastController } from '@ionic/angular';
+import { AlertController, ToastController } from '@ionic/angular';
+import { TranslateService } from '@ngx-translate/core';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ToastService {
-  constructor(public toast: ToastController) {}
+  constructor(
+    public toast: ToastController,
+    public alertController: AlertController,
+    private translate: TranslateService
+  ) {}
 
-  async presentToast(message: string, color: string, canDismiss: boolean = false) {
+  async presentToast(
+    message: string,
+    color: string,
+    canDismiss: boolean = false
+  ) {
     const options: any = {
       message,
       animated: true,
       position: 'bottom',
       color,
-      keyboardClose: true
+      keyboardClose: true,
     };
 
     if (!canDismiss) {
@@ -22,7 +31,7 @@ export class ToastService {
       options.buttons = [
         {
           text: 'OK',
-          role: 'cancel'
+          role: 'cancel',
         },
       ];
     }
@@ -30,5 +39,30 @@ export class ToastService {
     const toast = await this.toast.create(options);
     toast.present();
     return toast.onDidDismiss();
+  }
+
+  async presentAlert(header: string, message: string = null) {
+    const options: any = {
+      header,
+      buttons: [
+        {
+          text: this.translate.instant('TOAST.CONFIRM'),
+        },
+        {
+          text: this.translate.instant('TOAST.CANCEL'),
+          role: 'cancel',
+        },
+      ],
+      animated: true,
+      cssClass: 'custom-alert',
+    };
+
+    if (message) {
+      options.message = message;
+    }
+
+    const alert = await this.alertController.create(options);
+    await alert.present();
+    return alert.onDidDismiss();
   }
 }
