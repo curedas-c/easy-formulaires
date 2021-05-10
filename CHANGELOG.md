@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.37](///compare/v0.0.36...v0.0.37) (2021-05-10)
+
+
+### Features
+
+* adds back button confirm dialog to some routes 40a27ea
+
 ### [0.0.36](///compare/v0.0.35...v0.0.36) (2021-05-10)
 
 
