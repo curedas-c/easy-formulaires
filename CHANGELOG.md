@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.39](///compare/v0.0.38...v0.0.39) (2021-05-10)
+
+
+### Features
+
+* disable required input when field is a checkbox 39ed876
+
 ### [0.0.38](///compare/v0.0.37...v0.0.38) (2021-05-10)
 
 
