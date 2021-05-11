@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.41](///compare/v0.0.40...v0.0.41) (2021-05-11)
+
+
+### Bug Fixes
+
+* fix back button behavior 9e2f429
+
 ### [0.0.40](///compare/v0.0.39...v0.0.40) (2021-05-11)
 
 
