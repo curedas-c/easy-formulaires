@@ -17,6 +17,7 @@ import { FileService } from 'src/app/@core/services/file.service';
 import { FileExtension } from 'src/app/@shared/models/fileExtension.model';
 import { ToastService } from 'src/app/@core/services/toast.service';
 import { TranslateService } from '@ngx-translate/core';
+import { ComponentInjectorService } from 'src/app/@core/services/component-injector.service';
 
 @Component({
   selector: 'app-form-table',
@@ -39,12 +40,14 @@ export class FormTableComponent implements OnInit, OnDestroy, AfterViewInit {
     private cdr: ChangeDetectorRef,
     private fileService: FileService,
     private toast: ToastService,
-    private translate: TranslateService
+    private translate: TranslateService,
+    private ci: ComponentInjectorService
   ) {}
 
   ngOnInit() {
     this.getFormName();
     this.getFormData();
+    this.ci.showAdvise('#advise-no-data', 'no-data', true);
   }
 
   ngAfterViewInit() {
@@ -119,5 +122,9 @@ export class FormTableComponent implements OnInit, OnDestroy, AfterViewInit {
     };
 
     this.fileService.share(options);
+  }
+
+  get haveData() {
+    return this.dataSource.data.length > 0;
   }
 }

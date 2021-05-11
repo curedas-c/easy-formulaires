@@ -11,6 +11,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { NbCardModule } from '@nebular/theme';
 
 import {MatMenuModule} from '@angular/material/menu';
+import { SharedModule } from '../@shared/modules/shared/shared.module';
 
 @NgModule({
   imports: [
@@ -20,7 +21,8 @@ import {MatMenuModule} from '@angular/material/menu';
     FormListPageRoutingModule,
     TranslateModule.forChild(),
     NbCardModule,
-    MatMenuModule
+    MatMenuModule,
+    SharedModule
   ],
   declarations: [FormListPage]
 })

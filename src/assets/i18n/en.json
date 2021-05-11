@@ -65,5 +65,12 @@
     "CONFIRM_MESSAGE": "Get Back ?",
     "CONFIRM": "Yes",
     "CANCEL": "Cancel"
+  },
+  "ADVISE": {
+    "NO_ITEM": "List is Empty!",
+    "CLICK_BUTTON": "Click the button below to create a survey.",
+    "NOT_FOUND": "Nothing Here.",
+    "NO_DATA": "No Data!",
+    "NO_DATA_HELP": "Add data by filling survey."
   }
 }

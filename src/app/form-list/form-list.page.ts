@@ -1,21 +1,41 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { FormStateService } from '../@core/services/form-state.service';
 import { FormModel } from '../@shared/models/form.model';
 import { FormDataStateService } from '../@core/services/form-data-state.service';
+import { ComponentInjectorService } from '../@core/services/component-injector.service';
+import { takeUntil } from 'rxjs/operators';
 
 @Component({
   selector: 'app-form-list',
   templateUrl: './form-list.page.html',
   styleUrls: ['./form-list.page.scss'],
 })
-export class FormListPage implements OnInit {
+export class FormListPage implements OnInit, OnDestroy {
   formList$: Observable<FormModel[]> = this.formState.formList$;
+  private unsubscribe$ = new Subject();
 
-  constructor(private router: Router, private formState: FormStateService, private formDataState: FormDataStateService) { }
+  constructor(
+    private router: Router,
+    private formState: FormStateService,
+    private formDataState: FormDataStateService,
+    private ci: ComponentInjectorService
+  ) {}
 
   ngOnInit() {
+    this.formList$
+      .pipe(takeUntil(this.unsubscribe$))
+      .subscribe(list => {
+        if (list.length < 1) {
+          this.ci.showAdvise('#advise-container', 'list-empty');
+        }
+      });
+  }
+
+  ngOnDestroy() {
+    this.unsubscribe$.next();
+    this.unsubscribe$.complete();
   }
 
   goFill(currentForm: FormModel) {

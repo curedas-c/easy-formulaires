@@ -1,0 +1,18 @@
+<section class="advise" [ngClass]="{'advice--center': shouldCenter}">
+  <ng-container [ngSwitch]="iconType">
+    <div *ngSwitchCase="'list-empty'">
+      <img class="advise-image" src="assets/icon/empty.svg">
+      <h5 class="advise-text" translate>ADVISE.NO_ITEM</h5>
+      <p class="advise-sub-text" translate>ADVISE.CLICK_BUTTON</p>
+    </div>
+    <div *ngSwitchCase="'no-data'">
+      <img class="advise-image" src="assets/icon/no-data.svg">
+      <h5 class="advise-text" translate>ADVISE.NO_DATA</h5>
+      <p class="advise-sub-text" translate>ADVISE.NO_DATA_HELP</p>
+    </div>
+    <div *ngSwitchDefault>
+      <p class="advise-text" translate>ADVISE.NOT_FOUND</p>
+    </div>
+  </ng-container>
+
+</section>

@@ -65,5 +65,12 @@
     "CONFIRM_MESSAGE": "Revenir en arrière ?",
     "CONFIRM": "Oui",
     "CANCEL": "Annuler"
+  },
+  "ADVISE": {
+    "NO_ITEM": "Aucun formulaire pour l'instant!",
+    "CLICK_BUTTON": "Cliquez sur le bouton ci-dessous pour créer un formulaire.",
+    "NOT_FOUND": "Rien Ici.",
+    "NO_DATA": "Aucune Donnée!",
+    "NO_DATA_HELP": "Ajoutez des données en remplissant le formulaire."
   }
 }

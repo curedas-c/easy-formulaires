@@ -15,11 +15,11 @@
   </ion-header>
 
   <section id="content" class="colored-column-basic">
-    <div id="table-wrapper">
+    <div *ngIf="haveData" id="table-wrapper">
       <ion-text>
         <h5>{{ formName }}</h5>
       </ion-text>
-      <nb-card *ngIf="propertyList">
+      <nb-card>
         <nb-card-body class="mat-body">
           <table mat-table matSort [dataSource]="dataSource">
             <ng-container *ngFor="let property of propertyList;" [matColumnDef]="property">
@@ -34,7 +34,7 @@
       </nb-card>
     </div>
 
-    <div *ngIf="propertyList" id="controls">
+    <div *ngIf="haveData" id="controls">
       <mat-paginator [pageSizeOptions]="[5, 10]"></mat-paginator>
       <ion-toolbar>
         <ion-buttons slot="secondary">
@@ -54,5 +54,6 @@
         </ion-label>
       </ion-toolbar>
     </div>
+    <section [hidden]="haveData" id="advise-no-data"></section>
   </section>
 </ion-content>
