@@ -52,4 +52,8 @@ export class FormListPage implements OnInit, OnDestroy {
     this.formState.setCurrentForm(currentForm);
     this.formDataState.getFormData(currentForm.formID);
   }
+
+  deleteForm(form: FormModel) {
+    this.formState.deleteForm(form);
+  }
 }

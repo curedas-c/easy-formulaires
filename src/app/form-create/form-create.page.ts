@@ -37,13 +37,15 @@ export class FormCreatePage implements OnInit {
     private location: Location
   ) {
     App.addListener('backButton', async () => {
-      this.toast
+      if (this.location.isCurrentPathEqualTo('/form-create')) {
+        this.toast
         .presentAlert(this.translate.instant('TOAST.CONFIRM_MESSAGE'))
         .then((button) => {
           if (button.role !== 'cancel') {
             this.location.back();
           }
         });
+      }
     });
   }
 

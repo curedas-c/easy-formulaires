@@ -35,6 +35,15 @@ export class FormStateService extends StateService<FormState> {
     this.storage.setKeyValue('formList', [...this.state.forms]);
   }
 
+  deleteForm(form: FormModel) {
+    const newList = this.state.forms.filter(item => item !== form);
+    this.setState({
+      forms: [...newList]
+    });
+    // save to local storage
+    this.storage.setKeyValue('formList', [...this.state.forms]);
+  }
+
   setCurrentForm(form: FormModel) {
     this.setState({ currentForm: form });
   }

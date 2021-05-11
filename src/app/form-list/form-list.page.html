@@ -20,13 +20,20 @@
 
   <section id="form-list">
     <nb-card *ngFor="let form of formList$ | async" accent="info">
-      <nb-card-header (click)="goFill(form)">
-        <ion-item lines="none">
-          <ion-avatar slot="start">
-            <ion-img [src]="form?.formLogo ? form.formLogo : 'assets/icon/form.svg'"></ion-img>
-          </ion-avatar>
-          <ion-label>{{ form?.formName }}</ion-label>
-        </ion-item>
+      <nb-card-header>
+        <ion-item-sliding>
+          <ion-item lines="none">
+            <ion-avatar slot="start">
+              <ion-img [src]="form?.formLogo ? form.formLogo : 'assets/icon/form.svg'"></ion-img>
+            </ion-avatar>
+            <ion-label>{{ form?.formName }}</ion-label>
+          </ion-item>
+          <ion-item-options side="end">
+            <ion-item-option (click)="deleteForm(form)" color="danger">
+              <ion-icon slot="icon-only" name="trash"></ion-icon>
+            </ion-item-option>
+          </ion-item-options>
+        </ion-item-sliding>
       </nb-card-header>
       <nb-card-body>
         <ion-button (click)="goTable(form)" color="light" expand="block" translate>FORMLIST.MENU.VIEWTABLE</ion-button>
