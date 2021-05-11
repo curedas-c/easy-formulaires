@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.0.0](///compare/v0.0.41...v2.0.0) (2021-05-11)
+
+
+### ⚠ BREAKING CHANGES
+
+* all main features implemented
+
+### Features
+
+* implements form deletion 8871f8e
+* updates developer website link and version number 906ea06
+
 ### [1.0.41](///compare/v1.0.40...v1.0.41) (2021-05-11)
 
 
