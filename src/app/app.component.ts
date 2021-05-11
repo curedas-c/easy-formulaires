@@ -19,17 +19,9 @@ export class AppComponent {
     private location: Location
   ) {
     App.addListener('backButton', () => {
-      const IS_MAIN_ROUTE = this.location.isCurrentPathEqualTo('/form-list');
-      const IS_CREATE_ROUTE = this.location.isCurrentPathEqualTo(
-        '/form-create'
-      );
-      const IS_FILL_ROUTE = this.location.isCurrentPathEqualTo(
-        '/form-view/fill'
-      );
-
-      if (IS_MAIN_ROUTE) {
+      if (this.location.isCurrentPathEqualTo('/form-list')) {
         App.exitApp();
-      } else if (!IS_CREATE_ROUTE && !IS_FILL_ROUTE) {
+      } else if (this.location.isCurrentPathEqualTo('/form-view/table')) {
         this.location.back();
       }
     });

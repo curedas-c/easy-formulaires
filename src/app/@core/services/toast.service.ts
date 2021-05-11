@@ -6,6 +6,7 @@ import { TranslateService } from '@ngx-translate/core';
   providedIn: 'root',
 })
 export class ToastService {
+  haveAlert = false;
   constructor(
     public toast: ToastController,
     public alertController: AlertController,
@@ -42,27 +43,37 @@ export class ToastService {
   }
 
   async presentAlert(header: string, message: string = null) {
-    const options: any = {
-      header,
-      buttons: [
-        {
-          text: this.translate.instant('TOAST.CONFIRM'),
-        },
-        {
-          text: this.translate.instant('TOAST.CANCEL'),
-          role: 'cancel',
-        },
-      ],
-      animated: true,
-      cssClass: 'custom-alert',
-    };
+    const vm = this;
+    if (!vm.haveAlert) {
+      vm.haveAlert = true;
+      const options: any = {
+        header,
+        buttons: [
+          {
+            text: this.translate.instant('TOAST.CONFIRM'),
+            handler: () => {
+              vm.haveAlert = false;
+            }
+          },
+          {
+            text: this.translate.instant('TOAST.CANCEL'),
+            role: 'cancel',
+            handler: () => {
+              vm.haveAlert = false;
+            },
+          },
+        ],
+        animated: true,
+        cssClass: 'custom-alert',
+      };
 
-    if (message) {
-      options.message = message;
+      if (message) {
+        options.message = message;
+      }
+
+      const alert = await this.alertController.create(options);
+      await alert.present();
+      return alert.onDidDismiss();
     }
-
-    const alert = await this.alertController.create(options);
-    await alert.present();
-    return alert.onDidDismiss();
   }
 }

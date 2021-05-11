@@ -20,7 +20,7 @@ const initialState: FormState = {
 })
 export class FormStateService extends StateService<FormState> {
 
-  formList$: Observable<FormModel[]> = this.select((state) => state.forms);
+  formList$: Observable<FormModel[]> = this.select((state) => state.forms.slice().reverse());
   currentForm$: Observable<FormModel> = this.select((state) => state.currentForm);
 
   constructor(private storage: StorageService) {
