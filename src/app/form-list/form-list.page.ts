@@ -6,6 +6,7 @@ import { FormModel } from '../@shared/models/form.model';
 import { FormDataStateService } from '../@core/services/form-data-state.service';
 import { ComponentInjectorService } from '../@core/services/component-injector.service';
 import { takeUntil } from 'rxjs/operators';
+import { PushNotificationService } from '../@core/services/push-notification.service';
 
 @Component({
   selector: 'app-form-list',
@@ -20,7 +21,8 @@ export class FormListPage implements OnInit, OnDestroy {
     private router: Router,
     private formState: FormStateService,
     private formDataState: FormDataStateService,
-    private ci: ComponentInjectorService
+    private ci: ComponentInjectorService,
+    private pushNotification: PushNotificationService
   ) {}
 
   ngOnInit() {
@@ -36,6 +38,7 @@ export class FormListPage implements OnInit, OnDestroy {
           }
         }
       });
+    this.pushNotification.init();
   }
 
   ngOnDestroy() {
