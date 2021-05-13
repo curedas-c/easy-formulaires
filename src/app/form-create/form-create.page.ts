@@ -9,8 +9,6 @@ import { toFormGroup } from 'src/app/@shared/utils/form-construtor';
 import { Router } from '@angular/router';
 import { ToastService } from '../@core/services/toast.service';
 import { TranslateService } from '@ngx-translate/core';
-import { App } from '@capacitor/app';
-import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-form-create',
@@ -33,21 +31,8 @@ export class FormCreatePage implements OnInit {
     private formState: FormStateService,
     private router: Router,
     private toast: ToastService,
-    private translate: TranslateService,
-    private location: Location
-  ) {
-    App.addListener('backButton', async () => {
-      if (this.location.isCurrentPathEqualTo('/form-create')) {
-        this.toast
-        .presentAlert(this.translate.instant('TOAST.CONFIRM_MESSAGE'))
-        .then((button) => {
-          if (button.role !== 'cancel') {
-            this.location.back();
-          }
-        });
-      }
-    });
-  }
+    private translate: TranslateService
+  ) {}
 
   ngOnInit() {
     this.initFieldForm();

@@ -30,6 +30,11 @@ export class FormListPage implements OnInit, OnDestroy {
         if (list.length < 1) {
           this.ci.showAdvise('#advise-container', 'list-empty');
         }
+        else {
+          if (this.ci.adviseCompRef) {
+            this.ci.hideAdvise();
+          }
+        }
       });
   }
 

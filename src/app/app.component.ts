@@ -4,6 +4,8 @@ import { version } from '../../package.json';
 import { FormStateService } from './@core/services/form-state.service';
 import { App } from '@capacitor/app';
 import { Location } from '@angular/common';
+import { TranslateService } from '@ngx-translate/core';
+import { ToastService } from './@core/services/toast.service';
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
@@ -16,13 +18,24 @@ export class AppComponent {
   constructor(
     private language: LanguageService,
     private formState: FormStateService,
-    private location: Location
+    private location: Location,
+    private toast: ToastService,
+    private translate: TranslateService
   ) {
     App.addListener('backButton', () => {
       if (this.location.isCurrentPathEqualTo('/form-list')) {
         App.exitApp();
       } else if (this.location.isCurrentPathEqualTo('/form-view/table')) {
         this.location.back();
+      }
+      else {
+        this.toast
+        .presentAlert(this.translate.instant('TOAST.CONFIRM_MESSAGE'))
+        .then((button) => {
+          if (button.role !== 'cancel') {
+            this.location.back();
+          }
+        });
       }
     });
 

@@ -24,29 +24,7 @@ export class FormShowComponent implements OnInit, OnDestroy {
   haveAlert = false;
   private unsubscribe$ = new Subject();
 
-  constructor(
-    private router: Router,
-    private formState: FormStateService,
-    private toast: ToastService,
-    private translate: TranslateService,
-    private location: Location
-  ) {
-    App.addListener('backButton', () => {
-      if (this.haveAlert) {
-        return;
-      } else {
-        this.haveAlert = true;
-      }
-      this.toast
-        .presentAlert(this.translate.instant('TOAST.CONFIRM_MESSAGE'))
-        .then((button) => {
-          this.haveAlert = false;
-          if (button.role !== 'cancel') {
-            this.location.back();
-          }
-        });
-    });
-  }
+  constructor(private router: Router, private formState: FormStateService) {}
 
   ngOnInit() {
     this.formState.currentForm$
