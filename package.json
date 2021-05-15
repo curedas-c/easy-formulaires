@@ -36,6 +36,7 @@
     "@capacitor/filesystem": "^0.5.3",
     "@capacitor/push-notifications": "^0.3.10",
     "@capacitor/share": "^0.5.5",
+    "@capacitor/splash-screen": "^0.3.10",
     "@capacitor/storage": "^0.3.6",
     "@ionic-native/core": "^5.32.1",
     "@ionic-native/open-native-settings": "^5.32.1",

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, Component } from '@angular/core';
 import { LanguageService } from './@core/services/language.service';
 import { version } from '../../package.json';
 import { FormStateService } from './@core/services/form-state.service';
@@ -6,12 +6,13 @@ import { App } from '@capacitor/app';
 import { Location } from '@angular/common';
 import { TranslateService } from '@ngx-translate/core';
 import { ToastService } from './@core/services/toast.service';
+import { SplashScreen } from '@capacitor/splash-screen';
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.scss'],
 })
-export class AppComponent {
+export class AppComponent implements AfterViewInit {
   public version: string = version;
   public toggleChecked = false;
 
@@ -47,6 +48,10 @@ export class AppComponent {
     });
 
     this.formState.initState();
+  }
+
+  ngAfterViewInit(): void {
+    SplashScreen.hide();
   }
 
   switch($event: any) {
