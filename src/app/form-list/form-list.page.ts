@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, AfterViewInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable, Subject } from 'rxjs';
 import { FormStateService } from '../@core/services/form-state.service';
@@ -7,13 +7,14 @@ import { FormDataStateService } from '../@core/services/form-data-state.service'
 import { ComponentInjectorService } from '../@core/services/component-injector.service';
 import { takeUntil } from 'rxjs/operators';
 import { PushNotificationService } from '../@core/services/push-notification.service';
+import { AdmobService } from '../@core/services/admob.service';
 
 @Component({
   selector: 'app-form-list',
   templateUrl: './form-list.page.html',
   styleUrls: ['./form-list.page.scss'],
 })
-export class FormListPage implements OnInit, OnDestroy {
+export class FormListPage implements OnInit, OnDestroy, AfterViewInit {
   formList$: Observable<FormModel[]> = this.formState.formList$;
   private unsubscribe$ = new Subject();
 
@@ -22,7 +23,8 @@ export class FormListPage implements OnInit, OnDestroy {
     private formState: FormStateService,
     private formDataState: FormDataStateService,
     private ci: ComponentInjectorService,
-    private pushNotification: PushNotificationService
+    private pushNotification: PushNotificationService,
+    private ad: AdmobService
   ) {}
 
   ngOnInit() {
@@ -44,6 +46,12 @@ export class FormListPage implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.unsubscribe$.next();
     this.unsubscribe$.complete();
+  }
+
+  ngAfterViewInit() {
+    this.ad.initialize().then(() => {
+      this.ad.showBanner();
+    });
   }
 
   goFill(currentForm: FormModel) {

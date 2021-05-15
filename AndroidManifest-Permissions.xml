@@ -3,6 +3,7 @@
     <!-- Activities -->
     <activity android:requestLegacyExternalStorage="true">
 
+    <meta-data android:name="com.google.android.gms.ads.APPLICATION_ID" android:value="@string/admob_app_id"/>
     <!-- Permissions -->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>

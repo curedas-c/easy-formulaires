@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AdmobService } from '../@core/services/admob.service';
 
 @Component({
   selector: 'app-form-view',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FormViewPage implements OnInit {
 
-  constructor() { }
+  constructor(private ad: AdmobService) { }
 
   ngOnInit() {
   }
 
+  ionViewWillEnter() {
+    this.ad.hideBanner();
+  }
+
+  ionViewWillLeave() {
+    this.ad.resumeBanner();
+  }
 }
