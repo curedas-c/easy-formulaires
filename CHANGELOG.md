@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.5.0](///compare/v2.4.0...v2.5.0) (2021-05-15)
+
+
+### Features
+
+* remove ads from app 473c17b
+
 ## [2.4.0](///compare/v2.3.0...v2.4.0) (2021-05-15)
 
 
