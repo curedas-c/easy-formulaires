@@ -15,7 +15,7 @@
     "TITLE": "Surveys",
     "MENU": {
       "FILL": "Fill Survey",
-      "VIEWTABLE": "View Table"
+      "VIEWTABLE": "View Data"
     }
   },
   "FORMCREATE": {
@@ -27,23 +27,25 @@
       "ADDINPUT": "Add Field"
     },
     "FORMINPUT": {
-      "FIELDREQUIRED": "is the field required ?",
+      "FIELDREQUIRED": "is this question required ?",
       "VALUES": "Possible Values (separated by comma)",
       "FORMNAME": "Survey name",
       "FILE": "Survey Logo (optional)",
-      "LABELNAME": "Input Name",
-      "TYPES": "Input Type",
+      "LABELNAME": "Question",
+      "TYPES": "Question Type",
       "OPTIONTEXT": "Text",
       "OPTIONSELECT": "Select",
       "OPTIONMULTISELECT": "Multi-Select",
-      "OPTIONCHECKBOX": "True or False",
+      "OPTIONCHECKBOX": "Yes or No",
       "OPTIONEMAIL": "Email",
       "OPTIONNUMBER": "Number",
-      "OPTIONPHONE": "Phone"
+      "OPTIONPHONE": "Phone",
+      "TRUE_TEXT": "Yes",
+      "FALSE_TEXT": "No"
     },
     "OVERVIEW": {
       "FORMVIEW": "Overview",
-      "INPUTVIEW": "Edit Inputs"
+      "INPUTVIEW": "Edit Questions"
     }
   },
   "FORMVIEW": {
@@ -57,9 +59,9 @@
   },
   "TOAST": {
     "ENTRY_SAVED": "Entry Saved!",
-    "FIELD_EXIST": "Field already exist!",
+    "FIELD_EXIST": "Question already exist!",
     "FORM_NEED_NAME": "Survey needs a name",
-    "FORM_NEED_FIELD": "Survey needs at least 1 field",
+    "FORM_NEED_FIELD": "Survey needs at least 1 question",
     "FILE_SAVED": "File Saved on Document Folder.",
     "FILE_NOT_SAVED": "Set Read/Write Access from app settings",
     "CONFIRM_MESSAGE": "Get Back ?",

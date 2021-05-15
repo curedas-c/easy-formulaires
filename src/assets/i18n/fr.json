@@ -15,7 +15,7 @@
     "TITLE": "Liste Des Formulaires",
     "MENU": {
       "FILL": "Remplir",
-      "VIEWTABLE": "Voir le Tableau"
+      "VIEWTABLE": "Voir les données"
     }
   },
   "FORMCREATE": {
@@ -24,22 +24,24 @@
     "BUTTONS": {
       "NEXTSLIDE": "Suivant",
       "PREVSLIDE": "Précédent",
-      "ADDINPUT": "Ajouter Le Champs"
+      "ADDINPUT": "Ajouter La question"
     },
     "FORMINPUT": {
-      "FIELDREQUIRED": "Ce champs est-il requis ?",
+      "FIELDREQUIRED": "La question est-elle obligatoire ?",
       "VALUES": "Valeurs Possibles (separées par une virgule)",
       "FORMNAME": "Nom du formulaire",
       "FILE": "Logo du formulaire (optionnel)",
-      "LABELNAME": "Nom du Champ",
+      "LABELNAME": "Question",
       "TYPES": "Sélectionner un type",
       "OPTIONTEXT": "Texte",
       "OPTIONSELECT": "Sélection",
       "OPTIONMULTISELECT": "Sélection Multiple",
-      "OPTIONCHECKBOX": "Vrai ou Faux",
+      "OPTIONCHECKBOX": "Oui ou Non",
       "OPTIONEMAIL": "Email",
       "OPTIONNUMBER": "Nombre",
-      "OPTIONPHONE": "Contact"
+      "OPTIONPHONE": "Contact",
+      "TRUE_TEXT": "Oui",
+      "FALSE_TEXT": "Non"
     },
     "OVERVIEW": {
       "FORMVIEW": "Aperçu Formulaire",
@@ -59,7 +61,7 @@
     "ENTRY_SAVED": "Entrée Sauvegardée!",
     "FIELD_EXIST": "Ce champs existe déjà!",
     "FORM_NEED_NAME": "Veuillez entrer un nom de formulaire.",
-    "FORM_NEED_FIELD": "Créez au moins 1 champs.",
+    "FORM_NEED_FIELD": "Créez au moins une question",
     "FILE_SAVED": "Fichier Sauvegardé dans Documents.",
     "FILE_NOT_SAVED": "Veuillez accorder manuellement les autorisations depuis les paramêtres de l'application",
     "CONFIRM_MESSAGE": "Revenir en arrière ?",

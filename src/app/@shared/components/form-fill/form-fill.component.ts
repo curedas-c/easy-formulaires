@@ -15,6 +15,8 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class FormFillComponent implements OnInit, OnDestroy {
   @Input() formName = '';
+  @Input() trueText = '';
+  @Input() falseText = '';
   @Input() formLogo: ArrayBuffer;
   @Input() fieldList: InputModel<string>[] = [];
   @Input() isOverview = false;

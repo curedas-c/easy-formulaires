@@ -22,6 +22,8 @@ export class FormShowComponent implements OnInit, OnDestroy {
   fieldList: InputModel<string>[] = [];
   generatedForm = new FormGroup({});
   haveAlert = false;
+  trueText: string;
+  falseText: string;
   private unsubscribe$ = new Subject();
 
   constructor(private router: Router, private formState: FormStateService) {}
@@ -34,6 +36,8 @@ export class FormShowComponent implements OnInit, OnDestroy {
         this.formLogo = currentForm.formLogo;
         this.fieldList = currentForm.fieldList;
         this.generatedForm = toFormGroup(currentForm.fieldList);
+        this.trueText = currentForm.trueText;
+        this.falseText = currentForm.falseText;
       });
   }
 

@@ -74,12 +74,31 @@ table {
         justify-content: center;
     }
 
+    td, th {
+        text-align: center !important;
+        vertical-align: middle !important;
+    }
+    
+    .mat-sort-header-container {
+        justify-content: center !important;
+    }
+
     tr:nth-last-of-type(1) {
 
         td.mat-cell,
         td.mat-footer-cell {
             border-bottom: none !important;
         }
+    }
+
+    td:not(:nth-last-of-type(1)) {
+        border-right: 1px solid rgba(0, 0, 0, 0.12);
+    }
+
+    td {
+        text-align: center !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
     }
 
     button[class="select-button"] {

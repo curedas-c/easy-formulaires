@@ -31,7 +31,7 @@ export class FormCreatePage implements OnInit {
     private formState: FormStateService,
     private router: Router,
     private toast: ToastService,
-    private translate: TranslateService
+    public translate: TranslateService
   ) {}
 
   ngOnInit() {
@@ -61,12 +61,12 @@ export class FormCreatePage implements OnInit {
       {
         value: [''],
         key: [''],
-        label: ['', Validators.required], // yeah
-        required: [false], //yeah
+        label: ['', Validators.required],
+        required: [true],
         order: [1],
-        controlType: ['text', Validators.required], //yeah
+        controlType: ['text', Validators.required],
         type: ['text'],
-        options: [''], //yeah
+        options: ['']
       },
       {
         validator: requiredMatchValuesValidator('controlType', 'options', [
@@ -145,6 +145,8 @@ export class FormCreatePage implements OnInit {
       formName: this.formName,
       formLogo: this.formLogo,
       fieldList: this.fieldList,
+      trueText: this.translate.instant('FORMCREATE.FORMINPUT.TRUE_TEXT'),
+      falseText: this.translate.instant('FORMCREATE.FORMINPUT.FALSE_TEXT')
     });
 
     this.formState.addForm(NEWFORM);

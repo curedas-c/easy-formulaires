@@ -58,7 +58,7 @@
                 <nb-option value="multiselect" translate>FORMCREATE.FORMINPUT.OPTIONMULTISELECT</nb-option>
               </nb-select>
             </div>
-            <div *ngIf="!isFieldTrueFalse" class="fullwidth">
+            <div class="fullwidth">
               <nb-checkbox formControlName="required" status="basic">
                 {{'FORMCREATE.FORMINPUT.FIELDREQUIRED' | translate}}</nb-checkbox>
             </div>
@@ -76,8 +76,10 @@
     <div id="overview">
       <nb-tabset fullWidth>
         <nb-tab tabTitle="{{'FORMCREATE.OVERVIEW.FORMVIEW' | translate}}">
-          <app-form-fill *ngIf="haveFieldOrInfo" [formName]="formName" [formLogo]="formLogo" [fieldList]="fieldList" [generatedForm]="generatedForm"
-            [isOverview]="true">
+          <app-form-fill *ngIf="haveFieldOrInfo" [formName]="formName" [formLogo]="formLogo" [fieldList]="fieldList"
+            [generatedForm]="generatedForm" [isOverview]="true"
+            [trueText]="translate.instant('FORMCREATE.FORMINPUT.TRUE_TEXT')"
+            [falseText]="translate.instant('FORMCREATE.FORMINPUT.FALSE_TEXT')">
           </app-form-fill>
         </nb-tab>
 
