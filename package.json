@@ -1,7 +1,7 @@
 {
   "name": "easyFormulaire",
-  "version": "2.5.0",
-  "appCodeVersion": 99,
+  "version": "2.6.0",
+  "appCodeVersion": 100,
   "author": "Curedas Codjo",
   "homepage": "https://curedas-c.github.io/",
   "scripts": {
