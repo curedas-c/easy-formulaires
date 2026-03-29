@@ -2,13 +2,13 @@ import { Injectable } from '@angular/core';
 import { Filesystem, Directory, Encoding } from '@capacitor/filesystem';
 import { FileExtension } from 'src/app/@shared/models/fileExtension.model';
 import { Share } from '@capacitor/share';
-import { OpenNativeSettings } from '@ionic-native/open-native-settings/ngx';
+// import { OpenNativeSettings } from '@ionic-native/open-native-settings/ngx';
 
 @Injectable({
   providedIn: 'root',
 })
 export class FileService {
-  constructor(private openNativeSettings: OpenNativeSettings) {}
+  // constructor(private openNativeSettings: OpenNativeSettings) {}
 
   async saveOnStorage(options: {
     fileName: string;
@@ -69,7 +69,7 @@ export class FileService {
   }
 
   openAppSettings() {
-    const settings = this.openNativeSettings.open('application_details');
+    // const settings = this.openNativeSettings.open('application_details');
   }
 
   // Utilities

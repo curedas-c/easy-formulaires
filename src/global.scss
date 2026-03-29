@@ -8,6 +8,7 @@
  * For more information on global stylesheets, visit the documentation:
  * https://ionicframework.com/docs/layout/global-stylesheets
  */
+@use '@nebular/theme/styles/globals' as nb-globals;
 
 /* Core CSS required for Ionic components to work properly */
 @import "~@ionic/angular/css/core.css";
@@ -28,11 +29,10 @@
 
 /* Nebular Components Style */
 @import './theme/nebular-theme.scss';
-@import '~@nebular/theme/styles/globals';
 
-@include nb-install() {
-  @include nb-theme-global();
-};
+// @include nb-install() {
+//   @include nb-theme-global();
+// };
 
 /* Shared Styles */
 @import './theme/shared.scss';

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Storage } from '@capacitor/storage';
+import { Preferences  } from '@capacitor/preferences';
 import {parse, stringify} from 'flatted';
 
 @Injectable({
@@ -10,23 +10,23 @@ export class StorageService {
   constructor() { }
 
   async setKeyValue(key: string, itemValue: any) {
-    return await Storage.set({
+    return await Preferences.set({
       key,
       value: stringify(itemValue)
     });
   }
 
   async getKeyValue(key: string) {
-    const { value } = await Storage.get({ key });
+    const { value } = await Preferences.get({ key });
 
     return value ? parse(value) : null;
   }
 
   async removeKeyValue(key: string) {
-    return await Storage.remove({ key });
+    return await Preferences.remove({ key });
   }
 
   async clearKeys() {
-    return await Storage.clear();
+    return await Preferences.clear();
   }
 }

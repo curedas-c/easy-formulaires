@@ -1,6 +1,6 @@
 import { AfterViewInit, Component } from '@angular/core';
 import { LanguageService } from './@core/services/language.service';
-import { version } from '../../package.json';
+import packageInfo from '../../package.json';
 import { FormStateService } from './@core/services/form-state.service';
 import { App } from '@capacitor/app';
 import { Location } from '@angular/common';
@@ -13,7 +13,7 @@ import { SplashScreen } from '@capacitor/splash-screen';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent implements AfterViewInit {
-  public version: string = version;
+  public version: string = packageInfo.version;
   public toggleChecked = false;
 
   constructor(
@@ -21,22 +21,21 @@ export class AppComponent implements AfterViewInit {
     private formState: FormStateService,
     private location: Location,
     private toast: ToastService,
-    private translate: TranslateService
+    private translate: TranslateService,
   ) {
     App.addListener('backButton', () => {
       if (this.location.isCurrentPathEqualTo('/form-list')) {
         App.exitApp();
       } else if (this.location.isCurrentPathEqualTo('/form-view/table')) {
         this.location.back();
-      }
-      else {
+      } else {
         this.toast
-        .presentAlert(this.translate.instant('TOAST.CONFIRM_MESSAGE'))
-        .then((button) => {
-          if (button.role !== 'cancel') {
-            this.location.back();
-          }
-        });
+          .presentAlert(this.translate.instant('TOAST.CONFIRM_MESSAGE'))
+          .then((button) => {
+            if (button.role !== 'cancel') {
+              this.location.back();
+            }
+          });
       }
     });
 

@@ -1,5 +1,9 @@
 // Ionic Variables and Theming. For more info, please see:
 // http://ionicframework.com/docs/theming/
+@use '@angular/material' as mat;
+
+// 1. Inclure les styles de base (obligatoire une seule fois)
+@include mat.core();
 
 /** Ionic CSS Variables **/
 :root {
@@ -235,34 +239,52 @@
   }
 }
 
-@import '~@angular/material/theming';
-@include mat-core();
 
-$mat-primary-scheme: (100: #bfceff,
+
+// 2. Définition des palettes (les maps personnalisées s'utilisent avec define-palette)
+$my-primary-palette: mat.define-palette((
+  100: #bfceff,
   500: #3366ff,
   700: #512da8,
-  contrast: (100: rgba(0, 0, 0, 0.87),
+  contrast: (
+    100: rgba(0, 0, 0, 0.87),
     500: #ffffff,
     700: #ffffff,
-  ));
-$mat-accent-scheme: (100: #ffe57f,
+  )
+));
+
+$my-accent-palette: mat.define-palette((
+  100: #ffe57f,
   500: #f5f4ef,
   700: #ffc400,
-  contrast: (100: rgba(0, 0, 0, 0.87),
+  contrast: (
+    100: rgba(0, 0, 0, 0.87),
     500: rgba(0, 0, 0, 0.87),
     700: #ffffff,
-  ));
-$mat-primary-palette: mat-palette($mat-primary-scheme);
-$mat-accent-palette: mat-palette($mat-accent-scheme);
+  )
+));
 
-$app-light-theme: mat-light-theme($mat-primary-palette, $mat-accent-palette);
+// 3. Création des objets de thème
+$my-light-theme: mat.define-light-theme((
+  color: (
+    primary: $my-primary-palette,
+    accent: $my-accent-palette,
+  ),
+  typography: mat.define-typography-config(), // Optionnel : config par défaut
+  density: 0,                                 // Optionnel : densité par défaut
+));
 
-@include angular-material-theme($app-light-theme);
+$my-dark-theme: mat.define-dark-theme((
+  color: (
+    primary: $my-primary-palette,
+    accent: $my-accent-palette,
+  )
+));
 
-// following section is for dark mode.
-// use appropriate class name for darkMode
-$app-dark-theme: mat-dark-theme($mat-primary-palette, $mat-accent-palette);
+// 4. Application du thème par défaut (Light)
+@include mat.all-component-themes($my-light-theme);
 
+// 5. Application du Dark Mode via une classe
 .darkMode {
-  @include angular-material-theme($app-dark-theme);
+  @include mat.all-component-colors($my-dark-theme);
 }

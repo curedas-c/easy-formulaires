@@ -27,8 +27,8 @@
 
   <section id="content">
     <div id="slides">
-      <ion-slides #slider pager="false">
-        <ion-slide>
+      <ion-list #slider pager="false">
+        <ion-item-sliding>
           <form id="formDetail">
             <input type="text" name="formname" nbInput fullWidth status="basic"
               placeholder="{{'FORMCREATE.FORMINPUT.FORMNAME' | translate}}" [(ngModel)]="formName">
@@ -40,9 +40,9 @@
             <button (click)="onNextButtonClicked()" nbButton status="primary"
               translate>FORMCREATE.BUTTONS.NEXTSLIDE</button>
           </form>
-        </ion-slide>
+        </ion-item-sliding>
 
-        <ion-slide>
+        <ion-item-sliding>
           <form id="formInputs" [formGroup]="fieldForm">
             <div class="two-column">
               <input formControlName="label" type="text" nbInput status="basic"
@@ -68,8 +68,8 @@
               translate>FORMCREATE.BUTTONS.ADDINPUT
             </button>
           </form>
-        </ion-slide>
-      </ion-slides>
+        </ion-item-sliding>
+      </ion-list>
     </div>
 
 

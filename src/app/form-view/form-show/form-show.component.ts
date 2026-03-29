@@ -24,7 +24,7 @@ export class FormShowComponent implements OnInit, OnDestroy {
   haveAlert = false;
   trueText: string;
   falseText: string;
-  private unsubscribe$ = new Subject();
+  private unsubscribe$ = new Subject<void>();
 
   constructor(private router: Router, private formState: FormStateService) {}
 

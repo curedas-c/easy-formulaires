@@ -1,6 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { IonSlides } from '@ionic/angular';
 import { InputModel } from '../@shared/models/input.model';
 import { requiredMatchValuesValidator } from '../@core/validators/required-match-values.validator';
 import { FormModel } from '../@shared/models/form.model';
@@ -9,6 +8,7 @@ import { toFormGroup } from 'src/app/@shared/utils/form-construtor';
 import { Router } from '@angular/router';
 import { ToastService } from '../@core/services/toast.service';
 import { TranslateService } from '@ngx-translate/core';
+import { IonList } from '@ionic/angular';
 
 @Component({
   selector: 'app-form-create',
@@ -16,7 +16,7 @@ import { TranslateService } from '@ngx-translate/core';
   styleUrls: ['./form-create.page.scss'],
 })
 export class FormCreatePage implements OnInit {
-  @ViewChild('slider') slide: IonSlides;
+  @ViewChild('slider') slide: IonList;
   formName = '';
   formLogo: any;
   formLogoName: string;
@@ -40,7 +40,7 @@ export class FormCreatePage implements OnInit {
 
   // Events
   onNextButtonClicked() {
-    this.slide.slideNext(500);
+    // this.slide.slideNext(500);
   }
 
   onFileChange($ev) {

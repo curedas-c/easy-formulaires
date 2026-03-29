@@ -19,6 +19,14 @@ import {
 import { TranslateModule } from '@ngx-translate/core';
 import { FormFillModule } from '../@shared/components/form-fill/form-fill.module';
 import { MatMenuModule } from '@angular/material/menu';
+import {
+  IonItem,
+  IonItemOption,
+  IonItemOptions,
+  IonItemSliding,
+  IonLabel,
+  IonList,
+} from '@ionic/angular/standalone';
 
 @NgModule({
   imports: [
@@ -36,7 +44,13 @@ import { MatMenuModule } from '@angular/material/menu';
     NbCardModule,
     NbListModule,
     FormFillModule,
-    MatMenuModule
+    MatMenuModule,
+    IonItem,
+    IonItemOption,
+    IonItemOptions,
+    IonItemSliding,
+    IonLabel,
+    IonList,
   ],
   declarations: [FormCreatePage],
 })

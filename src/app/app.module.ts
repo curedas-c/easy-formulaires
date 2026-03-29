@@ -14,10 +14,9 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import { OpenNativeSettings } from '@ionic-native/open-native-settings/ngx';
+// import { OpenNativeSettings } from '@ionic-native/open-native-settings/ngx';
 @NgModule({
   declarations: [AppComponent],
-  entryComponents: [],
   imports: [
     BrowserModule,
     IonicModule.forRoot({ hardwareBackButton: false }),
@@ -40,7 +39,7 @@ import { OpenNativeSettings } from '@ionic-native/open-native-settings/ngx';
   ],
   providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    OpenNativeSettings
+    // OpenNativeSettings
   ],
   bootstrap: [AppComponent],
 })
@@ -48,5 +47,5 @@ export class AppModule {}
 
 // eslint-disable-next-line prefer-arrow/prefer-arrow-functions
 export function httpLoaderFactory(http: HttpClient): TranslateHttpLoader {
-  return new TranslateHttpLoader(http);
+  return new TranslateHttpLoader();
 }

@@ -14,30 +14,28 @@ import { PushNotificationService } from '../@core/services/push-notification.ser
   styleUrls: ['./form-list.page.scss'],
 })
 export class FormListPage implements OnInit, OnDestroy {
-  formList$: Observable<FormModel[]> = this.formState.formList$;
-  private unsubscribe$ = new Subject();
+  formList$!: Observable<FormModel[]>;
+  private unsubscribe$ = new Subject<void>();
 
   constructor(
     private router: Router,
     private formState: FormStateService,
     private formDataState: FormDataStateService,
     private ci: ComponentInjectorService,
-    private pushNotification: PushNotificationService
+    private pushNotification: PushNotificationService,
   ) {}
 
   ngOnInit() {
-    this.formList$
-      .pipe(takeUntil(this.unsubscribe$))
-      .subscribe(list => {
-        if (list.length < 1) {
-          this.ci.showAdvise('#advise-container', 'list-empty');
+    this.formList$ = this.formState.formList$;
+    this.formList$.pipe(takeUntil(this.unsubscribe$)).subscribe((list) => {
+      if (list.length < 1) {
+        this.ci.showAdvise('#advise-container', 'list-empty');
+      } else {
+        if (this.ci.adviseCompRef) {
+          this.ci.hideAdvise();
         }
-        else {
-          if (this.ci.adviseCompRef) {
-            this.ci.hideAdvise();
-          }
-        }
-      });
+      }
+    });
     this.pushNotification.init();
   }
 

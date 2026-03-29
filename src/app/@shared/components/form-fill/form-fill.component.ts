@@ -22,7 +22,7 @@ export class FormFillComponent implements OnInit, OnDestroy {
   @Input() isOverview = false;
   @Input() generatedForm: FormGroup = new FormGroup({});
   currentFormData: FormDataModel;
-  private unsubscribe$ = new Subject();
+  private unsubscribe$ = new Subject<void>();
 
   constructor(private formDataState: FormDataStateService, private toast: ToastService, private translate: TranslateService) {}
 

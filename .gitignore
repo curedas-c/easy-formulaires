@@ -32,6 +32,10 @@ npm-debug.log*
 /resources/android
 /resources/ios
 /android
+/android/*
+!/android/app
+!/android/build.gradle
+!/android/gradle
 /.yarn/*
 !/.yarn/releases
 !/.yarn/plugins

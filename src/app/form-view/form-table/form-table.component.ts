@@ -32,7 +32,7 @@ export class FormTableComponent implements OnInit, OnDestroy, AfterViewInit {
   propertyList;
   formName = '';
   fileType: FileExtension = 'CSV';
-  private unsubscribe$ = new Subject();
+  private unsubscribe$ = new Subject<void>();
 
   constructor(
     private formDataState: FormDataStateService,
